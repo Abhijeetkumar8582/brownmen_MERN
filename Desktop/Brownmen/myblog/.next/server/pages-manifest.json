@@ -1,15 +1,9 @@
 {
   "/_app": "pages/_app.js",
-  "/articles/EatHealthy": "pages/articles/EatHealthy.html",
   "/_error": "pages/_error.js",
-  "/articles/Exercise": "pages/articles/Exercise.html",
-  "/api/hello": "pages/api/hello.js",
   "/_document": "pages/_document.js",
-  "/articles/Footer": "pages/articles/Footer.html",
-  "/articles/Navbar": "pages/articles/Navbar.html",
-  "/articles/Post": "pages/articles/Post.html",
-  "/articles/LiveWell": "pages/articles/LiveWell.html",
-  "/": "pages/index.html",
-  "/articles/Yoga": "pages/articles/Yoga.html",
-  "/404": "pages/404.html"
+  "/": "pages/index.js",
+  "/articles/Exercise": "pages/articles/Exercise.js",
+  "/articles/EatHealthy": "pages/articles/EatHealthy.js",
+  "/articles/Post": "pages/articles/Post.js"
 }
