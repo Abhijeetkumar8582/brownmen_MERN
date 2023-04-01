@@ -38,13 +38,13 @@ function Category() {
       <div className='container flex-wrap my-5 '>
         <h2>Featured</h2>
         <div className='row mx-4 my-3 '>
-          {blog.slice(0, 12).map((element, index) => (
+          {blog.map((element, index) => (
             <div className='col-md-3 my-3 ' key={index}>
               <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
                 <div className="dynamicCardDisplay" >
                   <Image loading='lazy' src={element.image} width={285} height={220} className="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h6 className='dynamicCardText'>{element.category}</h6>
+                  <div className="card-body my-2 ">
+                    <h6 className='dynamicCardText '>{element.category}</h6>
                     <h6 className='dynamicCardText'>{element.blogtitle}</h6>
                     <p className='dynamicCardText'>{element.author}</p>
                   </div>
