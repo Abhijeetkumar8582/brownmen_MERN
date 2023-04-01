@@ -44,9 +44,9 @@ function Category() {
                 <div className="dynamicCardDisplay" >
                   <Image loading='lazy' src={element.image} width={285} height={220} className="card-img-top" alt="..." />
                   <div className="card-body">
-                    <h6 className='dynamicCardText'>{element.by}</h6>
-                    <h4 className='dynamicCardText'>{element.title}</h4>
-                    <p className='dynamicCardText'>{element.reviewed}</p>
+                    <h6 className='dynamicCardText'>{element.category}</h6>
+                    <h6 className='dynamicCardText'>{element.blogtitle}</h6>
+                    <p className='dynamicCardText'>{element.author}</p>
                   </div>
                 </div>
               </Link>

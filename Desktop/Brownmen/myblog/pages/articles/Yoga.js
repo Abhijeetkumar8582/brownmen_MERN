@@ -8,15 +8,14 @@ import { useRouter } from 'next/router'
 
 function Category({ response }) {
     const router = useRouter()
-
-    const handleCLick = (id) => {
-        console.log(id)
+    const handleCLick = (slug) => {
+        console.log(slug)
         router.push({
-            pathname: '/articles/Post',
-            query: { pid: id },
-
+          pathname: '/articles/Post',
+          query: { pid: slug },
+    
         })
-    }
+      }
     console.log(response)
     return (
         <>
@@ -41,13 +40,13 @@ function Category({ response }) {
                 <div className='row mx-4 my-3 '>
                     {blog.slice(0, 12).map((element, index) => (
                         <div className='col-md-3 my-3 ' key={index}>
-                            <Link href='#' onClick={() => handleCLick(element.id)} style={{ textDecoration: "none" }}>
+                            <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
                                 <div className="dynamicCardDisplay" >
                                      <Image loading='lazy' src={element.image} width={285} height={220} className="card-img-top" alt="..." />
                                     <div className="card-body">
-                                        <h6 className='dynamicCardText'>{element.by}</h6>
-                                        <h4 className='dynamicCardText'>{element.title}</h4>
-                                        <p className='dynamicCardText'>{element.reviewed}</p>
+                                        <h6 className='dynamicCardText'>{element.category}</h6>
+                                        <h6 className='dynamicCardText'>{element.blogtitle}</h6>
+                                        <p className='dynamicCardText'>{element.author}</p>
                                     </div>
                                 </div>
                             </Link>

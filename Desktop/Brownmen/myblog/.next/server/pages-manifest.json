@@ -2,7 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/articles/Exercise": "pages/articles/Exercise.js",
   "/articles/Post": "pages/articles/Post.js",
-  "/articles/EatHealthy": "pages/articles/EatHealthy.js"
+  "/articles/Exercise": "pages/articles/Exercise.js",
+  "/articles/EatHealthy": "pages/articles/EatHealthy.js",
+  "/": "pages/index.js"
 }

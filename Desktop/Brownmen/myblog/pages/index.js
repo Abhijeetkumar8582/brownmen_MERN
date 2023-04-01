@@ -1,45 +1,23 @@
-import Head from 'next/head'
+
 import Image from 'next/legacy/image';
 import blog from './JSON/Blog.json'
 import stories from './JSON/NewStories.json'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const [getData, setData] = useState([])
-
   const router = useRouter()
 
-  useEffect(() => {
-    fetch('https://reqres.in/api/users?page=2')
-      .then((response) => response.json())
-      .then((data) => {
-        setAPIS(data.data)
-      })
-  })
-  const [getAPIS, setAPIS] = useState([])
-
-
-
-  const handleCLick = (id) => {
-    console.log(id)
+  const handleCLick = (slug) => {
     router.push({
-      pathname: 'Component/Post',
-      query: { pid: id },
+      pathname: 'articles/Post',
+      query: { pid: slug },
 
     })
   }
 
-
-
-  // const handleCLick = (id) => {
-  //   console.log(id)
-  // }
   return (
 
     <>
@@ -95,11 +73,11 @@ export default function Home() {
         <div className="row mx-5 ">
           {blog.slice(0, 1).map((element, index) => (
             <div className="col-auto my-3 " key={index} >
-              <Link href='/' onClick={() => handleCLick(element.id)} style={{ textDecoration: "none" }}>
+              <Link href='/' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
               <div className="dynamicCardDisplay" style={{maxWidth:"450px",width:"100%"}} >
                   <Image loading='lazy' className="" src="https://images.pexels.com/photos/3289711/pexels-photo-3289711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" width={508} layout="responsive" height={600} alt="Card image cap" />
                   <div className="card-body">
-                    <p className="card-text">8 Things Dietitians Do Every Day to Keep Their Sugar Intake Under Control</p>
+                    <p className="card-text" style={{color:"black"}}>8 Things Dietitians Do Every Day to Keep Their Sugar Intake Under Control</p>
                   </div>
                 </div>
               </Link>
@@ -109,11 +87,13 @@ export default function Home() {
             <div className="row my-3">
               {blog.slice(0, 4).map((element, index) => (
                 <div className="col-md-5 mb-4 " key={index}>
-                  <Link href='/' onClick={() => handleCLick(element.id)} style={{ textDecoration: "none" }}>
+                  <Link href='/' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
                    <div className="dynamicCardDisplay" >
                       <Image loading='lazy' src={element.image} width={285} height={220} className="card-img-top" alt="..." />
                       <div className="card-body">
-                        <h5 className='dynamicCardText'>{element.title}</h5>
+                        <h6 className='dynamicCardText'>{element.category}</h6>
+                    <h6 className='dynamicCardText'>{element.blogtitle}</h6>
+                    <p className='dynamicCardText'>{element.author}</p>
                       </div>
                     </div>
                     </Link>
@@ -133,11 +113,11 @@ export default function Home() {
           <div className='row mx-4 my-3 '>
             {stories.slice(0, 4).map((element, index) => (
               <div className='col-md-3 my-3 ' key={index}>
-                <Link href='' onClick={() => handleCLick(element.id)} style={{ textDecoration: "none" }}>
+                <Link href='' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
                   <div className="card" style={{ maxWidth: "18rem", border: "none", width: "100%", maxHeight: "400px", height: "100%" }}>
                     <Image loading='lazy' width={285} height={350} src={element.image} className="card-img-top" alt="..." />
                     <div className="card-body">
-                      <h5 className='dynamicCardText'>{element.category}</h5>
+                      <h6 className='dynamicCardText'>{element.category}</h6>
                     </div>
                   </div>
                 </Link>
@@ -155,13 +135,13 @@ export default function Home() {
         <div className='row mx-4 my-3 '>
           {blog.slice(0, 12).map((element, index) => (
             <div className='col-md-3 my-3 ' key={index}>
-              <Link href='/' onClick={() => handleCLick(element.id)} style={{ textDecoration: "none" }}>
+              <Link href='/' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
                <div className="dynamicCardDisplay" >
                   <Image loading='lazy' src={element.image} width={285} height={220} className="card-img-top" alt="..." />
                   <div className="card-body">
-                    <h6 className='dynamicCardText'>{element.by}</h6>
-                    <h4 className='dynamicCardText'>{element.title}</h4>
-                    <p className='dynamicCardText'>{element.reviewed}</p>
+                    <h6 className='dynamicCardText'>{element.category}</h6>
+                    <h6 className='dynamicCardText'>{element.blogtitle}</h6>
+                    <p className='dynamicCardText'>{element.author}</p>
                   </div>
                 </div>
               </Link>

@@ -14,8 +14,8 @@ function Post() {
     // const { pid } = router.query;
     for (let i = 0; i < blog.length; i++) {
       if (blog[i].slug === pid) {
-        setBlogJson(blog[i].desc);
-        console.log("Found matching blog post:",blog[i].desc);
+        setBlogJson(blog[i].blog_desc);
+        console.log("Found matching blog post:",blog[i].blog_desc);
         break;
       }
     }
