@@ -15,11 +15,6 @@
   ],
   "rootMainFiles": [],
   "pages": {
-    "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
-    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -30,30 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/articles/EatHealthy": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/articles/EatHealthy.js"
-    ],
-    "/articles/Exercise": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/articles/Exercise.js"
-    ],
-    "/articles/LiveWell": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/articles/LiveWell.js"
-    ],
     "/articles/Post": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/articles/Post.js"
-    ],
-    "/articles/Yoga": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/articles/Yoga.js"
     ]
   },
   "ampFirstPages": []

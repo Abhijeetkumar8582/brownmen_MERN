@@ -2,10 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/articles/Yoga": "pages/articles/Yoga.js",
-  "/articles/Post": "pages/articles/Post.js",
-  "/articles/LiveWell": "pages/articles/LiveWell.js",
-  "/": "pages/index.js",
-  "/articles/Exercise": "pages/articles/Exercise.js",
-  "/articles/EatHealthy": "pages/articles/EatHealthy.js"
+  "/articles/Post": "pages/articles/Post.js"
 }

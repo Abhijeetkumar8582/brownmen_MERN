@@ -11,6 +11,7 @@ export default function Home() {
   const router = useRouter()
 
   const handleCLick = (slug) => {
+    // console.log(process.env.REACT_APP_API,"tesrt")
     router.push({
       pathname: 'articles/Post',
       query: { pid: slug },
@@ -22,6 +23,7 @@ export default function Home() {
 
     <>
       <div className='my-5'></div>
+      
       {/* Carousel display */}
       {/* <div className='container'> */}
         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
