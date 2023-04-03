@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import blog from '../JSON/Blog.json'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 
 
-function Category() {
+function Category({data}) {
 
   const router = useRouter()
   const [getCategory, setCategory] = useState(router.query.category)
   const [carousel_tittle, setCarousel_tittle] = useState("")
   const [carousel_description, setCarousel_description] = useState("")
-  const [getColor,setColor]=useState("#04A123")
+  const [getColor, setColor] = useState("#04A123")
   const [carousel_Image, setCarousel_Image] = useState("")
   const category = router.query.category
+ 
+  
 
   useEffect(() => {
     setCategory(category)
-    if (category == "Exercise") {
+    if (category == "Nutrition") {
       setCarousel_tittle("Pushing Your Limits")
       setCarousel_description("Regular exercise improves physical fitness, boosts mood, and reduces the risk of chronic diseases")
       setColor("#04A123")
@@ -27,7 +28,7 @@ function Category() {
       setCarousel_tittle("Eating Well for Life")
       setCarousel_description("Maintaining a healthy lifestyle is crucial for overall well-being and longevity")
       setColor("#A27202")
-      setCarousel_Image("https://images.pexels.com/photos/4473608/pexels-photo-4473608.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+      setCarousel_Image("https://images.pexels.com/photos/287354/pexels-photo-287354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
     }
     else if (category == "Live_well") {
       setCarousel_tittle("The Power of Self-Care")
@@ -61,18 +62,18 @@ function Category() {
         <div className='col'>
           <img src={carousel_Image} style={{ width: "100%", height: "100%" }} height={500} alt="https://images.pe750&dpr=2" />
         </div>
-        <div className='col' style={{ backgroundColor: getColor }}>
-          <h1 className='text-center' style={{ top: "30%", position: "relative", color: "wheat" }}>{carousel_tittle}</h1>
-          <h5 className='text-center' style={{ top: "35%", position: "relative", color: "wheat" }}>{carousel_description}</h5>
+        <div className='col carousel_text_box' style={{ backgroundColor: getColor }}>
+          <h1 className='text-center' style={{ top: "30%", position: "relative", color: "white" }}>{carousel_tittle}</h1>
+          <h5 className='text-center' style={{ top: "35%", position: "relative", color: "white" }}>{carousel_description}</h5>
         </div>
       </div>
 
 
 
       <div className='container flex-wrap my-5 '>
-        <h1>{getCategory}</h1>
+        <h1>Featured</h1>
         <div className='row mx-4 my-3 '>
-          {blog.slice(0, 12).map((element, index) => (
+          {data.slice(0, 12).map((element, index) => (
             <div className='col-md-3 my-3 ' key={index}>
               <Link href='#' onClick={() => refirect_to_post(element.slug)} style={{ textDecoration: "none" }}>
                 <div className="dynamicCardDisplay" >
@@ -94,3 +95,20 @@ function Category() {
 
 
 export default Category
+
+
+export async function getServerSideProps(context) {
+  
+  const { category } = context.params;
+  console.log(category,"check")
+  const headers = new Headers();
+  headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
+  const res = await fetch(`http://localhost:5001/category/${category}`,{
+    headers: headers,
+  });
+
+  const data = await res.json()
+  console.log(data)
+
+  return { props: { data } }
+}

@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 
-export default function Home() {
+export default function Home({data}) {
   const router = useRouter()
 
   const handleCLick = (slug) => {
@@ -135,7 +135,7 @@ export default function Home() {
       <div className='container flex-wrap my-5 '>
         <h1>Fitness</h1>
         <div className='row mx-4 my-3 '>
-          {blog.slice(0, 12).map((element, index) => (
+          {data.slice(0, 12).map((element, index) => (
             <div className='col-md-3 my-3 ' key={index}>
               <Link href='/' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
                <div className="dynamicCardDisplay" >
@@ -158,3 +158,18 @@ export default function Home() {
   )
 }
 
+
+
+export async function getServerSideProps(context) {
+  
+  const headers = new Headers();
+  headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
+  const res = await fetch(`http://localhost:4000/category/all_blog`,{
+    headers: headers,
+  });
+
+  const data = await res.json()
+  console.log(data)
+
+  return { props: { data } }
+}

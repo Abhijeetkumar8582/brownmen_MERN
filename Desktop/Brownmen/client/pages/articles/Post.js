@@ -31,6 +31,8 @@ function Post() {
             {item.key.startsWith("topHeading") && <h1 className='text-center my-3'>{(item.text)}</h1>}
             {item.key.startsWith("title") && <h3 className='text-start my-2'>{(item.text).includes("<br/>")?item.text.replace(/<br\/>/g, "<br>"):" "}</h3>}
             {item.key.startsWith("heading") && <p className='text-start my-2'>{(item.text)}</p>}
+            {item.key.startsWith("subheading") && <p className='text-start my-2'>{(item.text)}</p>}
+            {item.key.startsWith("content") && <p className='text-start my-2'>{(item.text)}</p>}
             <div className='d-flex justify-content-center'>
             {item.key.startsWith("image") && <img src={(item.text)} style={{width:"100%",maxWidth:"700px"}}  alt="Dynamic Image" />}
           </div>
