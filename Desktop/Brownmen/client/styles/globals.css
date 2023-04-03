@@ -51,6 +51,9 @@ width: 100%;
   .card-columns {
     column-count: 0;
   }
+  .navbar-brand{
+    left: 50%;
+  }
   .space{
     margin-top: 10%;
   }
