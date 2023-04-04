@@ -24,13 +24,13 @@ function Category({data}) {
       setColor("#04A123")
       setCarousel_Image("https://images.pexels.com/photos/4761663/pexels-photo-4761663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
     }
-    else if (category == "Healthy") {
+    else if (category == "Fitness") {
       setCarousel_tittle("Eating Well for Life")
       setCarousel_description("Maintaining a healthy lifestyle is crucial for overall well-being and longevity")
       setColor("#A27202")
       setCarousel_Image("https://images.pexels.com/photos/287354/pexels-photo-287354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
     }
-    else if (category == "Live_well") {
+    else if (category == "Health") {
       setCarousel_tittle("The Power of Self-Care")
       setCarousel_description("Living well involves making healthy choices for a fulfilling and balanced life")
       setColor("#043DA1")
@@ -45,12 +45,10 @@ function Category({data}) {
 
   }, [router.query.category])
 
-  const refirect_to_post = (slug) => {
-    console.log(slug)
+  const refirect_to_post = (blog_slug) => {
     router.push({
-      pathname: '/articles/Post',
-      query: { pid: slug },
-
+      pathname: '/articles/post',
+      query: { blog_slug: blog_slug }
     })
   }
 
@@ -98,17 +96,27 @@ export default Category
 
 
 export async function getServerSideProps(context) {
-  
+
+  try{
   const { category } = context.params;
-  console.log(category,"check")
+  
   const headers = new Headers();
   headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
-  const res = await fetch(`http://localhost:5001/category/${category}`,{
+  const res = await fetch(`http://localhost:6001/category/${category}`,{
     headers: headers,
+    timeout: 0,
+   
   });
-
   const data = await res.json()
-  console.log(data)
-
-  return { props: { data } }
+  // console.log(data)
+  
+  return { props: { data } }}
+  catch (error) {
+    // console.error(error);
+    return { props: {} }
+  }
 }
+
+// export const config = {
+//   runtime: 'nodejs',
+// }

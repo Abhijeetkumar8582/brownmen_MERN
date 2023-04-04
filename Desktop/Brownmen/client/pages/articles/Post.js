@@ -1,42 +1,36 @@
 import React, { useEffect, useState } from 'react'
-import Image from 'next/legacy/image'
+
 import { useRouter } from 'next/router';
-import blog from '../JSON/Blog.json'
-function Post() {
+
+function Post({ jsonRes }) {
 
   const router = useRouter();
-  const { pid } = router.query;
+  const { blog_slug } = router.query
 
-  
-  const [blogJson, setBlogJson] = useState([]);
-  
+  const [getData, setData] = useState(jsonRes)
+
   useEffect(() => {
-    for (let i = 0; i < blog.length; i++) {
-      if (blog[i].slug === pid) {
-        setBlogJson(blog[i].blog_desc);
-        
-        break;
-      }
-    }
-  }, [pid]);
+    setData(jsonRes)
+  }, [setData])
+
 
   return (
     <>
 
-      <div className='space' style={{padding:"1px"}}></div>
+      <div className='space' style={{ padding: "1px" }}></div>
       <div className=' container box' >
-        {blogJson.map((item) => (
-          <div key={item.key}>
+        {getData.map((item, index) => (
+          <div key={index}>
             <div className='container'>
-            {item.key.startsWith("topHeading") && <h1 className='text-center my-3'>{(item.text)}</h1>}
-            {item.key.startsWith("title") && <h3 className='text-start my-2'>{(item.text).includes("<br/>")?item.text.replace(/<br\/>/g, "<br>"):" "}</h3>}
-            {item.key.startsWith("heading") && <p className='text-start my-2'>{(item.text)}</p>}
-            {item.key.startsWith("subheading") && <p className='text-start my-2'>{(item.text)}</p>}
-            {item.key.startsWith("content") && <p className='text-start my-2'>{(item.text)}</p>}
-            <div className='d-flex justify-content-center'>
-            {item.key.startsWith("image") && <img src={(item.text)} style={{width:"100%",maxWidth:"700px"}}  alt="Dynamic Image" />}
-          </div>
-          </div>
+              {item.key.startsWith("topHeading") && <h1 className='text-center my-3'>{(item.text)}</h1>}
+              {item.key.startsWith("title") && <h3 className='text-start my-2'>{(item.text).includes("<br/>") ? item.text.replace(/<br\/>/g, "<br>") : " "}</h3>}
+              {item.key.startsWith("heading") && <p className='text-start my-2'>{(item.text)}</p>}
+              {item.key.startsWith("subheading") && <p className='text-start my-2'>{(item.text)}</p>}
+              {item.key.startsWith("content") && <p className='text-start my-2'>{(item.text)}</p>}
+              <div className='d-flex justify-content-center'>
+                {item.key.startsWith("image") && <img src={(item.text)} style={{ width: "100%", maxWidth: "700px" }} alt="Dynamic Image" />}
+              </div>
+            </div>
           </div>
         ))}
       </div>
@@ -45,3 +39,26 @@ function Post() {
 }
 
 export default Post
+
+
+export async function getServerSideProps(context) {
+
+  try {
+    const { blog_slug } = context.query;
+    const headers = new Headers();
+  headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
+    const res = await fetch(`http://localhost:6001/category/blog/${blog_slug}`, {
+      headers: headers,
+      timeout: 0,
+      // other fetch options...
+    });
+    const data = await res.json()
+    const jsonRes = data[0].blog_desc
+    console.log(jsonRes,"home")
+    return { props: { jsonRes } }
+  }
+  catch (error) {
+    console.error(error);
+    return { props: {} }
+  }
+}
