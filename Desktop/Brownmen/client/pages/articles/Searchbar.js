@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// import data from '../JSON/BLOG.json'
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router'

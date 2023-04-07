@@ -1,7 +1,5 @@
 
 import Image from 'next/legacy/image';
-import blog from './JSON/Blog.json'
-import stories from './JSON/NewStories.json'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -19,6 +17,29 @@ export default function Home({ data }) {
 
     })
   }
+
+  const onNavbarClick = (category) => {
+    router.push({
+      pathname: '/articles/[category]',
+      query: { category: category }
+    })
+  }
+  
+  const category = [
+    {
+      "key":"https://images.pexels.com/photos/3490348/pexels-photo-3490348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "heading":"Nutrition"
+    },{
+      "key":"https://images.pexels.com/photos/1998920/pexels-photo-1998920.jpeg",
+      "heading":"Fitness"
+    },{
+      "key":"https://images.pexels.com/photos/5648355/pexels-photo-5648355.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "heading":"Health"
+    },{
+      "key":"https://images.pexels.com/photos/1051838/pexels-photo-1051838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "heading":"yoga"
+    }
+  ]
 
   return (
 
@@ -74,7 +95,7 @@ export default function Home({ data }) {
       <div className="container my-5 ">
         <h1>Trending</h1>
         <div className="row mx-5 ">
-          {blog.slice(0, 1).map((element, index) => (
+          {data.slice(0, 1).map((element, index) => (
             <div className="col-auto my-3 " key={index} >
               <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
                 <div className="dynamicCardDisplay" style={{ maxWidth: "450px", width: "100%" }} >
@@ -88,7 +109,7 @@ export default function Home({ data }) {
           ))}
           <div className="col">
             <div className="row my-3">
-              {blog.slice(0, 4).map((element, index) => (
+              {data.filter((element)=>element.category==="yoga").slice(0, 4).map((element, index) => (
                 <div className="col-md-5 mb-4 " key={index}>
                   <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
                     <div className="dynamicCardDisplay" >
@@ -114,13 +135,13 @@ export default function Home({ data }) {
         <div className='container flex-wrap '>
           <h1>By Category</h1>
           <div className='row mx-4 my-3 '>
-            {stories.slice(0, 4).map((element, index) => (
+            {category.map((element, index) => (
               <div className='col-md-3 my-3 ' key={index}>
-                <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
+                <Link href='#' onClick={() => onNavbarClick(element.heading)} style={{ textDecoration: "none" }}>
                   <div className="card" style={{ maxWidth: "18rem", border: "none", width: "100%", maxHeight: "400px", height: "100%" }}>
-                    <Image loading='lazy' width={285} height={350} src={element.image} className="card-img-top" alt={element.image} />
+                    <Image loading='lazy' width={285} height={350} src={element.key} className="card-img-top" alt={element.image} />
                     <div className="card-body">
-                      <h6 className='dynamicCardText'>{element.category}</h6>
+                      <h6 className='dynamicCardText'>{element.heading}</h6>
                     </div>
                   </div>
                 </Link>

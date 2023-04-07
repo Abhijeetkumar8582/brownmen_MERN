@@ -1,55 +1,135 @@
 "use strict";
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 (() => {
 var exports = {};
-exports.id = "pages/articles/post";
-exports.ids = ["pages/articles/post"];
+exports.id = 35;
+exports.ids = [35,96];
 exports.modules = {
 
-/***/ "./pages/articles/post.js":
-/*!********************************!*\
-  !*** ./pages/articles/post.js ***!
-  \********************************/
+/***/ 9934:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__),\n/* harmony export */   \"getServerSideProps\": () => (/* binding */ getServerSideProps)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ \"next/router\");\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nfunction Post({ jsonRes  }) {\n    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();\n    const { blog_slug  } = router.query;\n    const [getData, setData] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(jsonRes);\n    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{\n        setData(jsonRes);\n    }, [\n        setData\n    ]);\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"space\",\n                style: {\n                    padding: \"1px\"\n                }\n            }, void 0, false, {\n                fileName: \"/Users/abhijeetkumar/Desktop/Brownmen/client/pages/articles/post.js\",\n                lineNumber: 20,\n                columnNumber: 7\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \" container box\",\n                children: getData.map((item, index)=>/*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                            className: \"container\",\n                            children: [\n                                item.key.startsWith(\"topHeading\") && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n                                    className: \"text-center my-3\",\n                                    children: item.text\n                                }, void 0, false, {\n                                    fileName: \"/Users/abhijeetkumar/Desktop/Brownmen/client/pages/articles/post.js\",\n                                    lineNumber: 25,\n                                    columnNumber: 53\n                                }, this),\n                                item.key.startsWith(\"title\") && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h3\", {\n                                    className: \"text-start my-2\",\n                                    children: item.text.includes(\"<br/>\") ? item.text.replace(/<br\\/>/g, \"<br>\") : \" \"\n                                }, void 0, false, {\n                                    fileName: \"/Users/abhijeetkumar/Desktop/Brownmen/client/pages/articles/post.js\",\n                                    lineNumber: 26,\n                                    columnNumber: 48\n                                }, this),\n                                item.key.startsWith(\"heading\") && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                                    className: \"text-start my-2\",\n                                    children: item.text\n                                }, void 0, false, {\n                                    fileName: \"/Users/abhijeetkumar/Desktop/Brownmen/client/pages/articles/post.js\",\n                                    lineNumber: 27,\n                                    columnNumber: 50\n                                }, this),\n                                item.key.startsWith(\"subheading\") && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                                    className: \"text-start my-2\",\n                                    children: item.text\n                                }, void 0, false, {\n                                    fileName: \"/Users/abhijeetkumar/Desktop/Brownmen/client/pages/articles/post.js\",\n                                    lineNumber: 28,\n                                    columnNumber: 53\n                                }, this),\n                                item.key.startsWith(\"content\") && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                                    className: \"text-start my-2\",\n                                    children: item.text\n                                }, void 0, false, {\n                                    fileName: \"/Users/abhijeetkumar/Desktop/Brownmen/client/pages/articles/post.js\",\n                                    lineNumber: 29,\n                                    columnNumber: 50\n                                }, this),\n                                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                                    className: \"d-flex justify-content-center\",\n                                    children: item.key.startsWith(\"image\") && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"img\", {\n                                        src: item.text,\n                                        style: {\n                                            width: \"100%\",\n                                            maxWidth: \"700px\"\n                                        },\n                                        alt: \"Dynamic Image\"\n                                    }, void 0, false, {\n                                        fileName: \"/Users/abhijeetkumar/Desktop/Brownmen/client/pages/articles/post.js\",\n                                        lineNumber: 31,\n                                        columnNumber: 50\n                                    }, this)\n                                }, void 0, false, {\n                                    fileName: \"/Users/abhijeetkumar/Desktop/Brownmen/client/pages/articles/post.js\",\n                                    lineNumber: 30,\n                                    columnNumber: 15\n                                }, this)\n                            ]\n                        }, void 0, true, {\n                            fileName: \"/Users/abhijeetkumar/Desktop/Brownmen/client/pages/articles/post.js\",\n                            lineNumber: 24,\n                            columnNumber: 13\n                        }, this)\n                    }, index, false, {\n                        fileName: \"/Users/abhijeetkumar/Desktop/Brownmen/client/pages/articles/post.js\",\n                        lineNumber: 23,\n                        columnNumber: 11\n                    }, this))\n            }, void 0, false, {\n                fileName: \"/Users/abhijeetkumar/Desktop/Brownmen/client/pages/articles/post.js\",\n                lineNumber: 21,\n                columnNumber: 7\n            }, this)\n        ]\n    }, void 0, true);\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Post);\nasync function getServerSideProps(context) {\n    try {\n        const { blog_slug  } = context.query;\n        const headers = new Headers();\n        headers.append(\"X-Api-Key\", \"6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96\");\n        const res = await fetch(`http://13.233.72.215:4001/category/blog/${blog_slug}`, {\n            headers: headers,\n            timeout: 0\n        });\n        const data = await res.json();\n        const jsonRes = data[0].blog_desc;\n        console.log(jsonRes, \"home\");\n        return {\n            props: {\n                jsonRes\n            }\n        };\n    } catch (error) {\n        console.error(error);\n        return {\n            props: {}\n        };\n    }\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9hcnRpY2xlcy9wb3N0LmpzLmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUFrRDtBQUVWO0FBRXhDLFNBQVNJLEtBQUssRUFBRUMsUUFBTyxFQUFFLEVBQUU7SUFFekIsTUFBTUMsU0FBU0gsc0RBQVNBO0lBQ3hCLE1BQU0sRUFBRUksVUFBUyxFQUFFLEdBQUdELE9BQU9FLEtBQUs7SUFFbEMsTUFBTSxDQUFDQyxTQUFTQyxRQUFRLEdBQUdSLCtDQUFRQSxDQUFDRztJQUVwQ0osZ0RBQVNBLENBQUMsSUFBTTtRQUNkUyxRQUFRTDtJQUNWLEdBQUc7UUFBQ0s7S0FBUTtJQUdaLHFCQUNFOzswQkFFRSw4REFBQ0M7Z0JBQUlDLFdBQVU7Z0JBQVFDLE9BQU87b0JBQUVDLFNBQVM7Z0JBQU07Ozs7OzswQkFDL0MsOERBQUNIO2dCQUFJQyxXQUFVOzBCQUNaSCxRQUFRTSxHQUFHLENBQUMsQ0FBQ0MsTUFBTUMsc0JBQ2xCLDhEQUFDTjtrQ0FDQyw0RUFBQ0E7NEJBQUlDLFdBQVU7O2dDQUNaSSxLQUFLRSxHQUFHLENBQUNDLFVBQVUsQ0FBQywrQkFBaUIsOERBQUNDO29DQUFHUixXQUFVOzhDQUFxQkksS0FBS0ssSUFBSTs7Ozs7O2dDQUNqRkwsS0FBS0UsR0FBRyxDQUFDQyxVQUFVLENBQUMsMEJBQVksOERBQUNHO29DQUFHVixXQUFVOzhDQUFtQixLQUFNUyxJQUFJLENBQUVFLFFBQVEsQ0FBQyxXQUFXUCxLQUFLSyxJQUFJLENBQUNHLE9BQU8sQ0FBQyxXQUFXLFVBQVUsR0FBRzs7Ozs7O2dDQUMzSVIsS0FBS0UsR0FBRyxDQUFDQyxVQUFVLENBQUMsNEJBQWMsOERBQUNNO29DQUFFYixXQUFVOzhDQUFvQkksS0FBS0ssSUFBSTs7Ozs7O2dDQUM1RUwsS0FBS0UsR0FBRyxDQUFDQyxVQUFVLENBQUMsK0JBQWlCLDhEQUFDTTtvQ0FBRWIsV0FBVTs4Q0FBb0JJLEtBQUtLLElBQUk7Ozs7OztnQ0FDL0VMLEtBQUtFLEdBQUcsQ0FBQ0MsVUFBVSxDQUFDLDRCQUFjLDhEQUFDTTtvQ0FBRWIsV0FBVTs4Q0FBb0JJLEtBQUtLLElBQUk7Ozs7Ozs4Q0FDN0UsOERBQUNWO29DQUFJQyxXQUFVOzhDQUNaSSxLQUFLRSxHQUFHLENBQUNDLFVBQVUsQ0FBQywwQkFBWSw4REFBQ087d0NBQUlDLEtBQU1YLEtBQUtLLElBQUk7d0NBQUdSLE9BQU87NENBQUVlLE9BQU87NENBQVFDLFVBQVU7d0NBQVE7d0NBQUdDLEtBQUk7Ozs7Ozs7Ozs7Ozs7Ozs7O3VCQVJyR2I7Ozs7Ozs7Ozs7OztBQWdCcEI7QUFFQSxpRUFBZWIsSUFBSUEsRUFBQTtBQUdaLGVBQWUyQixtQkFBbUJDLE9BQU8sRUFBRTtJQUVoRCxJQUFJO1FBQ0YsTUFBTSxFQUFFekIsVUFBUyxFQUFFLEdBQUd5QixRQUFReEIsS0FBSztRQUNuQyxNQUFNeUIsVUFBVSxJQUFJQztRQUN0QkQsUUFBUUUsTUFBTSxDQUFDLGFBQWE7UUFDMUIsTUFBTUMsTUFBTSxNQUFNQyxNQUFNLENBQUMsd0NBQXdDLEVBQUU5QixVQUFVLENBQUMsRUFBRTtZQUM5RTBCLFNBQVNBO1lBQ1RLLFNBQVM7UUFFWDtRQUNBLE1BQU1DLE9BQU8sTUFBTUgsSUFBSUksSUFBSTtRQUMzQixNQUFNbkMsVUFBVWtDLElBQUksQ0FBQyxFQUFFLENBQUNFLFNBQVM7UUFDakNDLFFBQVFDLEdBQUcsQ0FBQ3RDLFNBQVE7UUFDcEIsT0FBTztZQUFFdUMsT0FBTztnQkFBRXZDO1lBQVE7UUFBRTtJQUM5QixFQUNBLE9BQU93QyxPQUFPO1FBQ1pILFFBQVFHLEtBQUssQ0FBQ0E7UUFDZCxPQUFPO1lBQUVELE9BQU8sQ0FBQztRQUFFO0lBQ3JCO0FBQ0YsQ0FBQyIsInNvdXJjZXMiOlsid2VicGFjazovL215YmxvZy8uL3BhZ2VzL2FydGljbGVzL3Bvc3QuanM/NzFmYSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QsIHsgdXNlRWZmZWN0LCB1c2VTdGF0ZSB9IGZyb20gJ3JlYWN0J1xuXG5pbXBvcnQgeyB1c2VSb3V0ZXIgfSBmcm9tICduZXh0L3JvdXRlcic7XG5cbmZ1bmN0aW9uIFBvc3QoeyBqc29uUmVzIH0pIHtcblxuICBjb25zdCByb3V0ZXIgPSB1c2VSb3V0ZXIoKTtcbiAgY29uc3QgeyBibG9nX3NsdWcgfSA9IHJvdXRlci5xdWVyeVxuXG4gIGNvbnN0IFtnZXREYXRhLCBzZXREYXRhXSA9IHVzZVN0YXRlKGpzb25SZXMpXG5cbiAgdXNlRWZmZWN0KCgpID0+IHtcbiAgICBzZXREYXRhKGpzb25SZXMpXG4gIH0sIFtzZXREYXRhXSlcblxuXG4gIHJldHVybiAoXG4gICAgPD5cblxuICAgICAgPGRpdiBjbGFzc05hbWU9J3NwYWNlJyBzdHlsZT17eyBwYWRkaW5nOiBcIjFweFwiIH19PjwvZGl2PlxuICAgICAgPGRpdiBjbGFzc05hbWU9JyBjb250YWluZXIgYm94JyA+XG4gICAgICAgIHtnZXREYXRhLm1hcCgoaXRlbSwgaW5kZXgpID0+IChcbiAgICAgICAgICA8ZGl2IGtleT17aW5kZXh9PlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9J2NvbnRhaW5lcic+XG4gICAgICAgICAgICAgIHtpdGVtLmtleS5zdGFydHNXaXRoKFwidG9wSGVhZGluZ1wiKSAmJiA8aDEgY2xhc3NOYW1lPSd0ZXh0LWNlbnRlciBteS0zJz57KGl0ZW0udGV4dCl9PC9oMT59XG4gICAgICAgICAgICAgIHtpdGVtLmtleS5zdGFydHNXaXRoKFwidGl0bGVcIikgJiYgPGgzIGNsYXNzTmFtZT0ndGV4dC1zdGFydCBteS0yJz57KGl0ZW0udGV4dCkuaW5jbHVkZXMoXCI8YnIvPlwiKSA/IGl0ZW0udGV4dC5yZXBsYWNlKC88YnJcXC8+L2csIFwiPGJyPlwiKSA6IFwiIFwifTwvaDM+fVxuICAgICAgICAgICAgICB7aXRlbS5rZXkuc3RhcnRzV2l0aChcImhlYWRpbmdcIikgJiYgPHAgY2xhc3NOYW1lPSd0ZXh0LXN0YXJ0IG15LTInPnsoaXRlbS50ZXh0KX08L3A+fVxuICAgICAgICAgICAgICB7aXRlbS5rZXkuc3RhcnRzV2l0aChcInN1YmhlYWRpbmdcIikgJiYgPHAgY2xhc3NOYW1lPSd0ZXh0LXN0YXJ0IG15LTInPnsoaXRlbS50ZXh0KX08L3A+fVxuICAgICAgICAgICAgICB7aXRlbS5rZXkuc3RhcnRzV2l0aChcImNvbnRlbnRcIikgJiYgPHAgY2xhc3NOYW1lPSd0ZXh0LXN0YXJ0IG15LTInPnsoaXRlbS50ZXh0KX08L3A+fVxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0nZC1mbGV4IGp1c3RpZnktY29udGVudC1jZW50ZXInPlxuICAgICAgICAgICAgICAgIHtpdGVtLmtleS5zdGFydHNXaXRoKFwiaW1hZ2VcIikgJiYgPGltZyBzcmM9eyhpdGVtLnRleHQpfSBzdHlsZT17eyB3aWR0aDogXCIxMDAlXCIsIG1heFdpZHRoOiBcIjcwMHB4XCIgfX0gYWx0PVwiRHluYW1pYyBJbWFnZVwiIC8+fVxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICApKX1cbiAgICAgIDwvZGl2PlxuICAgIDwvPlxuICApXG59XG5cbmV4cG9ydCBkZWZhdWx0IFBvc3RcblxuXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gZ2V0U2VydmVyU2lkZVByb3BzKGNvbnRleHQpIHtcblxuICB0cnkge1xuICAgIGNvbnN0IHsgYmxvZ19zbHVnIH0gPSBjb250ZXh0LnF1ZXJ5O1xuICAgIGNvbnN0IGhlYWRlcnMgPSBuZXcgSGVhZGVycygpO1xuICBoZWFkZXJzLmFwcGVuZChcIlgtQXBpLUtleVwiLCBcIjY3MDZkNmViLWU2YWUtNDhhZS1hZDgyLTllNGMwYWM1MGU5NlwiKTtcbiAgICBjb25zdCByZXMgPSBhd2FpdCBmZXRjaChgaHR0cDovLzEzLjIzMy43Mi4yMTU6NDAwMS9jYXRlZ29yeS9ibG9nLyR7YmxvZ19zbHVnfWAsIHtcbiAgICAgIGhlYWRlcnM6IGhlYWRlcnMsXG4gICAgICB0aW1lb3V0OiAwLFxuICAgICAgLy8gb3RoZXIgZmV0Y2ggb3B0aW9ucy4uLlxuICAgIH0pO1xuICAgIGNvbnN0IGRhdGEgPSBhd2FpdCByZXMuanNvbigpXG4gICAgY29uc3QganNvblJlcyA9IGRhdGFbMF0uYmxvZ19kZXNjXG4gICAgY29uc29sZS5sb2coanNvblJlcyxcImhvbWVcIilcbiAgICByZXR1cm4geyBwcm9wczogeyBqc29uUmVzIH0gfVxuICB9XG4gIGNhdGNoIChlcnJvcikge1xuICAgIGNvbnNvbGUuZXJyb3IoZXJyb3IpO1xuICAgIHJldHVybiB7IHByb3BzOiB7fSB9XG4gIH1cbn0iXSwibmFtZXMiOlsiUmVhY3QiLCJ1c2VFZmZlY3QiLCJ1c2VTdGF0ZSIsInVzZVJvdXRlciIsIlBvc3QiLCJqc29uUmVzIiwicm91dGVyIiwiYmxvZ19zbHVnIiwicXVlcnkiLCJnZXREYXRhIiwic2V0RGF0YSIsImRpdiIsImNsYXNzTmFtZSIsInN0eWxlIiwicGFkZGluZyIsIm1hcCIsIml0ZW0iLCJpbmRleCIsImtleSIsInN0YXJ0c1dpdGgiLCJoMSIsInRleHQiLCJoMyIsImluY2x1ZGVzIiwicmVwbGFjZSIsInAiLCJpbWciLCJzcmMiLCJ3aWR0aCIsIm1heFdpZHRoIiwiYWx0IiwiZ2V0U2VydmVyU2lkZVByb3BzIiwiY29udGV4dCIsImhlYWRlcnMiLCJIZWFkZXJzIiwiYXBwZW5kIiwicmVzIiwiZmV0Y2giLCJ0aW1lb3V0IiwiZGF0YSIsImpzb24iLCJibG9nX2Rlc2MiLCJjb25zb2xlIiwibG9nIiwicHJvcHMiLCJlcnJvciJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./pages/articles/post.js\n");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "getServerSideProps": () => (/* binding */ getServerSideProps)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1853);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function Post({ jsonRes  }) {
+    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
+    const { blog_slug  } = router.query;
+    const [getData, setData] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(jsonRes);
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
+        setData(jsonRes);
+    }, [
+        setData
+    ]);
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: [
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                className: "space",
+                style: {
+                    padding: "1px"
+                }
+            }),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                className: " container box",
+                children: getData.map((item, index)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                            className: "container",
+                            children: [
+                                item.key.startsWith("topHeading") && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
+                                    className: "text-center my-3",
+                                    children: item.text
+                                }),
+                                item.key.startsWith("title") && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h3", {
+                                    className: "text-start my-2",
+                                    children: item.text.includes("<br/>") ? item.text.replace(/<br\/>/g, "<br>") : " "
+                                }),
+                                item.key.startsWith("heading") && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                                    className: "text-start my-2",
+                                    children: item.text
+                                }),
+                                item.key.startsWith("subheading") && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                                    className: "text-start my-2",
+                                    children: item.text
+                                }),
+                                item.key.startsWith("content") && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                                    className: "text-start my-2",
+                                    children: item.text
+                                }),
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                    className: "d-flex justify-content-center",
+                                    children: item.key.startsWith("image") && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
+                                        src: item.text,
+                                        style: {
+                                            width: "100%",
+                                            maxWidth: "700px"
+                                        },
+                                        alt: "Dynamic Image"
+                                    })
+                                })
+                            ]
+                        })
+                    }, index))
+            })
+        ]
+    });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Post);
+async function getServerSideProps(context) {
+    try {
+        const { blog_slug  } = context.query;
+        const headers = new Headers();
+        headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
+        const res = await fetch(`http://13.233.72.215:4001/category/blog/${blog_slug}`, {
+            headers: headers,
+            timeout: 0
+        });
+        const data = await res.json();
+        const jsonRes = data[0].blog_desc;
+        console.log(jsonRes, "home");
+        return {
+            props: {
+                jsonRes
+            }
+        };
+    } catch (error) {
+        console.error(error);
+        return {
+            props: {}
+        };
+    }
+}
+
 
 /***/ }),
 
-/***/ "next/router":
-/*!******************************!*\
-  !*** external "next/router" ***!
-  \******************************/
+/***/ 1853:
 /***/ ((module) => {
 
 module.exports = require("next/router");
 
 /***/ }),
 
-/***/ "react":
-/*!************************!*\
-  !*** external "react" ***!
-  \************************/
+/***/ 6689:
 /***/ ((module) => {
 
 module.exports = require("react");
 
 /***/ }),
 
-/***/ "react/jsx-dev-runtime":
-/*!****************************************!*\
-  !*** external "react/jsx-dev-runtime" ***!
-  \****************************************/
+/***/ 997:
 /***/ ((module) => {
 
-module.exports = require("react/jsx-dev-runtime");
+module.exports = require("react/jsx-runtime");
 
 /***/ })
 
@@ -60,7 +140,7 @@ module.exports = require("react/jsx-dev-runtime");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__("./pages/articles/post.js"));
+var __webpack_exports__ = (__webpack_exec__(9934));
 module.exports = __webpack_exports__;
 
 })();
