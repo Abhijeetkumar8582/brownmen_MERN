@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Style from '/Users/abhijeetkumar/Desktop/Brownmen/client/styles/Footer.module.css'
+
 import data from '../JSON/BLOG.json'
 import Image from 'next/image';
 import Link from 'next/link';
@@ -32,10 +32,10 @@ function Searchbar() {
   return (
     <>
       <div className='my-5'></div>
-      <h2 className={Style.search_Heading}>Search...</h2>
+      <h2 className='search_Heading'>Search...</h2>
       <div className='search_box'>
         <div className="container my-5">
-          <input type="text" className={Style.search_box} onChange={text_change} onKeyDown={(event) => {
+          <input type="text" className='search_box' onChange={text_change} onKeyDown={(event) => {
             if (event.key === 'Enter') { SearchBox(getText) }
           }} placeholder="Search your blog here..." />
         </div>
