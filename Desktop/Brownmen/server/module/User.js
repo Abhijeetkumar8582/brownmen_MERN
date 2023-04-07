@@ -6,7 +6,8 @@ const userSchema = new mongoose.Schema({
     category: String,
     author:String,
     image:String,
-    blog_desc:Array
+    blog_desc:Array,
+    date:String
 });
 
 
