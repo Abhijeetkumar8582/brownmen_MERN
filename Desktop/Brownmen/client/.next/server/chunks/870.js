@@ -27,9 +27,9 @@ function Navbar() {
     const router = (0,next_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
     const onNavbarClick = (category)=>{
         router.push({
-            pathname: "/articles/[category]",
+            pathname: "/articles/category",
             query: {
-                category: category
+                category
             }
         });
     };

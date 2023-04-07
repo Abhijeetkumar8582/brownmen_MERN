@@ -8,8 +8,8 @@ function Navbar() {
 
   const onNavbarClick = (category) => {
     router.push({
-      pathname: '/articles/[category]',
-      query: { category: category }
+      pathname: '/articles/category',
+      query: { category }
     })
   }
   const seachBar =()=>{

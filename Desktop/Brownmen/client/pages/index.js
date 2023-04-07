@@ -20,7 +20,7 @@ export default function Home({ data }) {
 
   const onNavbarClick = (category) => {
     router.push({
-      pathname: '/articles/[category]',
+      pathname: '/articles/category',
       query: { category: category }
     })
   }
