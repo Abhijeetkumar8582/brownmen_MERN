@@ -1,8 +1,8 @@
 import Link from "next/link"
 import { useRouter } from 'next/router'
+import mockRouter from 'next-router-mock';
 
-
-
+// jest.mock('next/router', () => require('next-router-mock'));
 function Navbar() {
   const router = useRouter()
 
@@ -10,6 +10,11 @@ function Navbar() {
     router.push({
       pathname: '/articles/[category]',
       query: { category: category }
+    })
+  }
+  const seachBar =()=>{
+    router.push({
+      pathname: '/articles/Searchbar'
     })
   }
 
@@ -37,7 +42,7 @@ function Navbar() {
                 <Link className="nav-link mx-2" href="#" onClick={() => onNavbarClick("yoga")}>Yoga</Link>
               </li>
             </ul>
-            <button className="btn btn-outline-success" type="submit">Search</button>
+            <button className="btn btn-outline-success" onClick={seachBar} type="submit">Search</button>
           </div>
         </div>
       </nav>

@@ -3,23 +3,24 @@ import React from 'react'
 function Footer() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">Navbar</a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-              <a className="nav-link active" aria-current="page" href="/articles/Post">Home</a>
-              <a className="nav-link" href="/articles/Post">Features</a>
-              <a className="nav-link" href="/articles/Post">Pricing</a>
-              <a className="nav-link disabled">Disabled</a>
+      <div style={{ backgroundColor: "black" }}>
+        <div className='container'>
+          <div className='d-flex justify-content-between align-items-center' style={{ color: "white" }}>
+            <div>
+              <a>● Terms</a>
+              <a>  ● Privacy</a></div>
+            <div>
+              <a href="#" class="fa fa-facebook"></a>
+              <a href="#" class="fa fa-twitter"></a>
+              <a href="#" class="fa fa-google"></a>
+              <a href="#" class="fa fa-linkedin"></a>
             </div>
+            <div className='d-flex align-items-center'>
+              <p>© 2023 Brownmen</p>
+              </div>
           </div>
         </div>
-      </nav>
-
+      </div>
     </>
   )
 }
