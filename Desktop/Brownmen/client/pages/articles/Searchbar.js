@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
-import data from '../JSON/BLOG.json'
+// import data from '../JSON/BLOG.json'
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 
 
-function Searchbar() {
+function Searchbar({data}) {
+  console.log({data})
   const router = useRouter();
   const [getText, setText] = useState("")
 
@@ -71,20 +72,20 @@ function Searchbar() {
 
 export default Searchbar;
 
-export async function getServerSideProps(context) {
-
+export async function getServerSideProps() {
+  console.log("server")
   try {
-    const { category } = context.params;
 
     const headers = new Headers();
     headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
-    const res = await fetch(`http://localhost:6001/category/${category}`, {
+    const res = await fetch(`http://13.233.72.215:4001/category/all_blog`, {
       headers: headers,
+      mode: "no-cors",
       timeout: 0,
 
     });
     const data = await res.json()
-    // console.log(data)
+
 
     return { props: { data } }
   }
