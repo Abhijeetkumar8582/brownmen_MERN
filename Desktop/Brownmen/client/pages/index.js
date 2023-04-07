@@ -26,53 +26,53 @@ export default function Home({ data }) {
       <div className='my-5'></div>
 
       {/* Carousel display */}
-
-      <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-        <div className="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <div className='container' >
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div className="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div className="carousel-inner">
+            <div id="carousel" className="carousel-item  active" data-bs-interval="10000">
+              <img src="https://images.pexels.com/photos/3094230/pexels-photo-3094230.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} height={500} alt="https://imexed" />
+              <div className="carousel-caption d-none d-md-block">
+                <h1 style={{ color: "white", textAlign: "start" }}>First slide label</h1>
+                <p style={{ color: "white", textAlign: "start" }}>Some representative placeholder content for the first slide.</p>
+              </div>
+            </div>
+            <div id="carousel" className="carousel-item" data-bs-interval="2000">
+              <img src="https://images.pexels.com/photos/4056535/pexels-photo-4056535.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} height={500} alt="https://imag750&dpr=2" />
+              <div className="carousel-caption d-none d-md-block">
+                <h1 style={{ color: "white", textAlign: "start" }}>Second slide label</h1>
+                <p style={{ color: "white", textAlign: "start" }}>Some representative placeholder content for the second slide.</p>
+              </div>
+            </div>
+            <div id="carousel" className="carousel-item" >
+              <img src="https://images.pexels.com/photos/3900844/pexels-photo-3900844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} height={500} alt="https://images.pe750&dpr=2" />
+              <div className="carousel-caption d-none d-md-block">
+                <h1 style={{ color: "white", textAlign: "start" }}>Third slide label</h1>
+                <p style={{ color: "white", textAlign: "start" }}>Some representative placeholder content for the third slide.</p>
+              </div>
+            </div>
+          </div>
+          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+          </button>
         </div>
-        <div className="carousel-inner">
-          <div id="carousel" className="carousel-item  active" data-bs-interval="10000">
-            <img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} height={500} alt="https://imexed" />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
-            </div>
-          </div>
-          <div id="carousel" className="carousel-item" data-bs-interval="2000">
-            <img src="https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} height={500} alt="https://imag750&dpr=2" />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
-            </div>
-          </div>
-          <div id="carousel" className="carousel-item" >
-            <img src="https://images.pexels.com/photos/235922/pexels-photo-235922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} height={500} alt="https://images.pe750&dpr=2" />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
-            </div>
-          </div>
-        </div>
-        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
-        </button>
       </div>
-      {/* </div> */}
 
 
 
 
       {/* Fit display */}
       <div className="container my-5 ">
-        <h1>Fit</h1>
+        <h1>Trending</h1>
         <div className="row mx-5 ">
           {blog.slice(0, 1).map((element, index) => (
             <div className="col-auto my-3 " key={index} >
@@ -92,7 +92,7 @@ export default function Home({ data }) {
                 <div className="col-md-5 mb-4 " key={index}>
                   <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
                     <div className="dynamicCardDisplay" >
-                      <Image loading='lazy' src={element.image} width={285} height={220} className="card-img-top" alt="..." />
+                      <Image loading='lazy' src={element.image} width={285} height={220} className="card-img-top" alt={element.image} />
                       <div className="card-body">
                         <h6 className='dynamicCardText'>{element.category}</h6>
                         <h6 className='dynamicCardText'>{element.blogtitle}</h6>
@@ -118,7 +118,7 @@ export default function Home({ data }) {
               <div className='col-md-3 my-3 ' key={index}>
                 <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
                   <div className="card" style={{ maxWidth: "18rem", border: "none", width: "100%", maxHeight: "400px", height: "100%" }}>
-                    <Image loading='lazy' width={285} height={350} src={element.image} className="card-img-top" alt="..." />
+                    <Image loading='lazy' width={285} height={350} src={element.image} className="card-img-top" alt={element.image} />
                     <div className="card-body">
                       <h6 className='dynamicCardText'>{element.category}</h6>
                     </div>
@@ -134,16 +134,16 @@ export default function Home({ data }) {
       {/* Fitnes display */}
 
       <div className='container flex-wrap my-5 '>
-        <h1>Fitness</h1>
+        <h1>Top Stories</h1>
         <div className='row mx-4 my-3 '>
           {data.slice(0, 12).map((element, index) => (
             <div className='col-md-3 my-3 ' key={index}>
               <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
                 <div className="dynamicCardDisplay" >
-                  <Image loading='lazy' src={element.image} width={285} height={220} className="card-img-top" alt="..." />
+                  <Image loading='lazy' src={element.image} width={285} height={220} className="card-img-top" alt={element.image} />
                   <div className="card-body">
                     <h6 className='dynamicCardText'>{element.category}</h6>
-                    <h6 className='dynamicCardText'>{element.blogtitle}</h6>
+                    <h6 className='dynamicCardText'>{element.blogtitle}{element.date}</h6>
                     <p className='dynamicCardText'>{element.author}</p>
                   </div>
                 </div>
@@ -167,7 +167,7 @@ export async function getServerSideProps() {
 
     const headers = new Headers();
     headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
-    const res = await fetch(`http://localhost:6001/category/all_blog`, {
+    const res = await fetch(`http://13.233.72.215:4001/category/all_blog`, {
       headers: headers,
       mode: "no-cors",
       timeout: 0,

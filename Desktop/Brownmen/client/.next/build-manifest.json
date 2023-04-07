@@ -30,11 +30,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/articles/Searchbar": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/articles/Searchbar.js"
-    ],
     "/articles/[category]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

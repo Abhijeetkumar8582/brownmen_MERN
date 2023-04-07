@@ -47,7 +47,7 @@ export async function getServerSideProps(context) {
     const { blog_slug } = context.query;
     const headers = new Headers();
   headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
-    const res = await fetch(`http://localhost:6001/category/blog/${blog_slug}`, {
+    const res = await fetch(`http://13.233.72.215:4001/category/blog/${blog_slug}`, {
       headers: headers,
       timeout: 0,
       // other fetch options...

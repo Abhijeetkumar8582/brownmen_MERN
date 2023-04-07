@@ -17,13 +17,11 @@
   left: 50%;
  
 } 
-.bos{
-  border: 2px solid;
-  width: 400px;
-  height: 50px;
- display: grid;
- align-items: center;
+.carousel_text{
+  color:"red";
+  text-align:"start";
 }
+
 .row {
   margin: 0;
   padding: 0;
@@ -32,7 +30,7 @@
   
 }
 .space{
-  margin-top: 10%;
+  margin-top: 7%;
 }
 
 .col {

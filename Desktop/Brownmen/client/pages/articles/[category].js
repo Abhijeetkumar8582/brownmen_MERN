@@ -58,7 +58,7 @@ function Category({data}) {
       <div className='my-5'></div>
       <div className='row '>
         <div className='col'>
-          <img src={carousel_Image} style={{ width: "100%", height: "100%" }} height={500} alt="https://images.pe750&dpr=2" />
+          <Image src={carousel_Image} loading="lazy" style={{ width: "100%", height: "100%" }} width={500} height={500} alt="https://images.pe750&dpr=2" />
         </div>
         <div className='col carousel_text_box' style={{ backgroundColor: getColor }}>
           <h1 className='text-center' style={{ top: "30%", position: "relative", color: "white" }}>{carousel_tittle}</h1>
@@ -75,7 +75,7 @@ function Category({data}) {
             <div className='col-md-3 my-3 ' key={index}>
               <Link href='#' onClick={() => refirect_to_post(element.slug)} style={{ textDecoration: "none" }}>
                 <div className="dynamicCardDisplay" >
-                  <Image loading='lazy' src={element.image} width={285} height={220} className="card-img-top" alt="..." />
+                  <Image loading='lazy' src={element.image} width={285} height={220} className="card-img-top" alt={element.blogtitle}/>
                   <div className="card-body">
                     <h6 className='dynamicCardText'>{element.category}</h6>
                     <h6 className='dynamicCardText'>{element.blogtitle}</h6>
@@ -102,7 +102,7 @@ export async function getServerSideProps(context) {
   
   const headers = new Headers();
   headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
-  const res = await fetch(`http://localhost:6001/category/${category}`,{
+  const res = await fetch(`http://13.233.72.215:4001/category/${category}`,{
     headers: headers,
     timeout: 0,
    
@@ -116,7 +116,3 @@ export async function getServerSideProps(context) {
     return { props: {} }
   }
 }
-
-// export const config = {
-//   runtime: 'nodejs',
-// }
