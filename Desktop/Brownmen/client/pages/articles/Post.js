@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-
 import { useRouter } from 'next/router';
+import NoPost from './NoPost';
 
 function Post({ jsonRes }) {
 
@@ -19,7 +19,7 @@ function Post({ jsonRes }) {
 
       <div className='space' style={{ padding: "1px" }}></div>
       <div className=' container box' >
-        {getData.map((item, index) => (
+        {getData === undefined ? <NoPost /> : getData.map((item, index) => (
           <div key={index}>
             <div className='container'>
               {item.key.startsWith("topHeading") && <h1 className='text-center my-3'>{(item.text)}</h1>}
@@ -46,7 +46,7 @@ export async function getServerSideProps(context) {
   try {
     const { blog_slug } = context.query;
     const headers = new Headers();
-  headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
+    headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
     const res = await fetch(`http://13.233.72.215:4001/category/blog/${blog_slug}`, {
       headers: headers,
       timeout: 0,
@@ -54,7 +54,7 @@ export async function getServerSideProps(context) {
     });
     const data = await res.json()
     const jsonRes = data[0].blog_desc
-    console.log(jsonRes,"home")
+    console.log(jsonRes, "home")
     return { props: { jsonRes } }
   }
   catch (error) {

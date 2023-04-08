@@ -1,13 +1,6 @@
 {
-  "/api/hello": "pages/api/hello.js",
   "/_app": "pages/_app.js",
-  "/articles/Footer": "pages/articles/Footer.html",
-  "/_document": "pages/_document.js",
-  "/articles/Navbar": "pages/articles/Navbar.html",
   "/_error": "pages/_error.js",
-  "/articles/category": "pages/articles/category.js",
-  "/articles/Searchbar": "pages/articles/Searchbar.js",
-  "/articles/post": "pages/articles/post.js",
-  "/": "pages/index.js",
-  "/404": "pages/404.html"
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js"
 }

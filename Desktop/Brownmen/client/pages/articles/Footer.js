@@ -9,7 +9,7 @@ function Footer() {
             <div>
               <a>● Terms</a>
               <a>  ● Privacy</a>
-              </div>
+            </div>
             <div>
               <a href="#" className="fa fa-facebook"></a>
               <a href="#" className="fa fa-twitter"></a>
@@ -18,7 +18,7 @@ function Footer() {
             </div>
             <div>
               <p className=' align-items-center'>© 2023 Brownmen</p>
-              </div>
+            </div>
           </div>
         </div>
       </div>

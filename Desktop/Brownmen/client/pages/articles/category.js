@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 
 
-function Category({data}) {
+function Category({ data }) {
 
   const router = useRouter()
   const [getCategory, setCategory] = useState(router.query.category)
@@ -13,8 +13,8 @@ function Category({data}) {
   const [getColor, setColor] = useState("#04A123")
   const [carousel_Image, setCarousel_Image] = useState("")
   const category = router.query.category
- 
-  
+
+
 
   useEffect(() => {
     setCategory(category)
@@ -42,7 +42,7 @@ function Category({data}) {
       setColor("#4C0099")
       setCarousel_Image("https://images.pexels.com/photos/4056535/pexels-photo-4056535.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
     }
-    
+
 
   }, [router.query.category])
 
@@ -76,7 +76,7 @@ function Category({data}) {
             <div className='col-md-3 my-3 ' key={index}>
               <Link href='#' onClick={() => refirect_to_post(element.slug)} style={{ textDecoration: "none" }}>
                 <div className="dynamicCardDisplay" >
-                  <Image loading='lazy' src={element.image} width={285} height={220} className="card-img-top" alt={element.blogtitle}/>
+                  <Image loading='lazy' src={element.image} width={285} height={220} className="card-img-top" alt={element.blogtitle} />
                   <div className="card-body">
                     <h6 className='dynamicCardText'>{element.category}</h6>
                     <h6 className='dynamicCardText'>{element.blogtitle}</h6>
@@ -98,20 +98,21 @@ export default Category
 
 export async function getServerSideProps(context) {
 
-  try{
-  const { category } = context.query;
-  
-  const headers = new Headers();
-  headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
-  const res = await fetch(`http://13.233.72.215:4001/category/${category}`,{
-    headers: headers,
-    timeout: 0,
-   
-  });
-  const data = await res.json()
-  // console.log(data)
-  
-  return { props: { data } }}
+  try {
+    const { category } = context.query;
+
+    const headers = new Headers();
+    headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
+    const res = await fetch(`http://13.233.72.215:4001/category/${category}`, {
+      headers: headers,
+      timeout: 0,
+
+    });
+    const data = await res.json()
+    // console.log(data)
+
+    return { props: { data } }
+  }
   catch (error) {
     // console.error(error);
     return { props: {} }
