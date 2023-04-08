@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/router';
 import NoPost from './NoPost';
 
 function Post({ jsonRes }) {
 
-  const router = useRouter();
-  const { blog_slug } = router.query
-
-  const [getData, setData] = useState(jsonRes)
+  const [getData, setData] = useState([])
 
   useEffect(() => {
     setData(jsonRes)
@@ -28,7 +24,7 @@ function Post({ jsonRes }) {
               {item.key.startsWith("subheading") && <p className='text-start my-2'>{(item.text)}</p>}
               {item.key.startsWith("content") && <p className='text-start my-2'>{(item.text)}</p>}
               <div className='d-flex justify-content-center'>
-                {item.key.startsWith("image") && <img src={(item.text)} style={{ width: "100%", maxWidth: "700px" }} alt="Dynamic Image" />}
+                {item.key.startsWith("image") && <img src={(item.text)} style={{ width: "100%", maxWidth: "500px",height:"100%",maxHeight:"500px" }} alt="Dynamic Image" />}
               </div>
             </div>
           </div>
@@ -45,12 +41,13 @@ export async function getServerSideProps(context) {
 
   try {
     const { blog_slug } = context.query;
+    console.log(blog_slug)
     const headers = new Headers();
     headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
     const res = await fetch(`http://13.233.72.215:4001/category/blog/${blog_slug}`, {
       headers: headers,
       timeout: 0,
-      // other fetch options...
+   
     });
     const data = await res.json()
     const jsonRes = data[0].blog_desc
