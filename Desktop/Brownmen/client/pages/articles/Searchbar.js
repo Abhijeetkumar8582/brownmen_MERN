@@ -69,7 +69,7 @@ function Searchbar({data}) {
     </>
   )
 }
-
+Searchbar.requireNavbarAndFooter = true;
 export default Searchbar;
 
 export async function getServerSideProps() {

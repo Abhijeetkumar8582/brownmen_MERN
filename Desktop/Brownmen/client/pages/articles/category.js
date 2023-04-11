@@ -92,7 +92,7 @@ function Category({ data }) {
   )
 }
 
-
+Category.requireNavbarAndFooter = true;
 export default Category
 
 

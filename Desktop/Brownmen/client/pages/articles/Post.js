@@ -33,7 +33,7 @@ function Post({ jsonRes }) {
     </>
   )
 }
-
+Post.requireNavbarAndFooter = true;
 export default Post
 
 
@@ -51,7 +51,7 @@ export async function getServerSideProps(context) {
     });
     const data = await res.json()
     const jsonRes = data[0].blog_desc
-    console.log(jsonRes, "home")
+    console.log(jsonRes)
     return { props: { jsonRes } }
   }
   catch (error) {

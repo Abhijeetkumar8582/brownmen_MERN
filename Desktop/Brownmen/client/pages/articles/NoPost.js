@@ -53,4 +53,5 @@ function NoPost() {
     )
 }
 
+NoPost.requireNavbarAndFooter = true;
 export default NoPost

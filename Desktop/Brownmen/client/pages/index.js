@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 
 
 
-export default function Home({ data }) {
+function Home({ data }) {
 
 
   const router = useRouter()
@@ -179,8 +179,9 @@ export default function Home({ data }) {
 
   )
 }
+Home.requireNavbarAndFooter = true;
 
-
+export default Home;
 
 export async function getServerSideProps() {
   console.log("server")
