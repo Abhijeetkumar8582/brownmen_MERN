@@ -4,12 +4,10 @@
 /articles/post.js         /client/pages/articles/post.js
 /articles/NoPost.js   client/pages/articles/NoPost.js
 
-
-
 [[redirects]]
   from = "/search"
   to = "http://13.233.72.215:4001"
   status = 200
   force = true # COMMENT: ensure that we always redirect
-  headers = {X-From = "Netlify"}
+  headers = {X-From: "Netlify"}
   signed = "uaaEx0brWSpIABBPAZ1NcFMW3I2lB7-qO_G_NCerROw"
