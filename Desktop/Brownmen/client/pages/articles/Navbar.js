@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { useRouter } from 'next/router'
-import mockRouter from 'next-router-mock';
+
 
 // jest.mock('next/router', () => require('next-router-mock'));
 function Navbar() {

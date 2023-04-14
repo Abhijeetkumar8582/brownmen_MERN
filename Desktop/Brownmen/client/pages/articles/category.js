@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import  { useEffect } from 'react'
+
+
 
 
 function Category({ data }) {
@@ -48,7 +51,7 @@ function Category({ data }) {
 
   const refirect_to_post = (blog_slug) => {
     router.push({
-      pathname: '/articles/post',
+      pathname: '/articles/Post',
       query: { blog_slug: blog_slug }
     })
   }

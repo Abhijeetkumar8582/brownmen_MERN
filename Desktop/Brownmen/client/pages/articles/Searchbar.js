@@ -19,14 +19,14 @@ function Searchbar({data}) {
 
   const SearchBlog = (blog_slug) => {
     router.push({
-      pathname: '/articles/post',
+      pathname: '/articles/Post',
       query: { blog_slug: blog_slug }
     })
   }
 
   const SearchBox = (setText) => {
     router.push({
-      pathname: '/articles/post',
+      pathname: '/articles/Post',
       query: { blog_slug: setText }
     })
   }

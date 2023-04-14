@@ -5,14 +5,14 @@ import { useRouter } from 'next/router'
 
 
 
-function Home({ data }) {
+function HomePage({ data }) {
 
 
   const router = useRouter()
   console.log({ data }, "home")
   const handleCLick = (blog_slug) => {
     router.push({
-      pathname: 'articles/post',
+      pathname: 'articles/Post',
       query: { blog_slug: blog_slug },
 
     })
@@ -179,9 +179,9 @@ function Home({ data }) {
 
   )
 }
-Home.requireNavbarAndFooter = true;
+HomePage.requireNavbarAndFooter = true;
 
-export default Home;
+export default HomePage;
 
 export async function getServerSideProps() {
   console.log("server")
