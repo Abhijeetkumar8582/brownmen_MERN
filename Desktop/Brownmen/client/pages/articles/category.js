@@ -20,6 +20,7 @@ function Category({ data }) {
 
 
   useEffect(() => {
+
     setCategory(category)
     if (category == "Nutrition") {
       setCarousel_tittle("Pushing Your Limits")

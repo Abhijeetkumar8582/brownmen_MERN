@@ -95,13 +95,13 @@ function HomePage({ data }) {
       <div className="container my-5 ">
         <h1>Trending</h1>
         <div className="row mx-5 ">
-          {data.slice(0, 1).map((element, index) => (
+          {data.filter((element)=>element.category==="Fitness").slice(0, 1).map((element, index) => (
             <div className="col-auto my-3 " key={index} >
               <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
-                <div className="dynamicCardDisplay" style={{ maxWidth: "450px", width: "100%" }} >
-                  <Image loading='lazy' className="" src="https://images.pexels.com/photos/3289711/pexels-photo-3289711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" width={508} layout="responsive" height={600} alt="Card image cap" />
+                <div className="dynamicCardDisplay" style={{ maxWidth: "650px", width: "100%" }} >
+                  <Image loading='lazy' className="" src={element.image} width={358} layout="responsive" height={500} alt="Card image cap" />
                   <div className="card-body">
-                    <p className="card-text" style={{ color: "black" }}>8 Things Dietitians Do Every Day to Keep Their Sugar Intake Under Control</p>
+                    <p className="card-text" style={{ color: "black" }}>{element.blogtitle}</p>
                   </div>
                 </div>
               </Link>
@@ -164,7 +164,7 @@ function HomePage({ data }) {
                   <Image loading='lazy' src={element.image} width={285} height={220} className="card-img-top" alt={element.image} />
                   <div className="card-body">
                     <h6 className='dynamicCardText'>{element.category}</h6>
-                    <h6 className='dynamicCardText'>{element.blogtitle}{element.date}</h6>
+                    <h6 className='dynamicCardText'>{element.blogtitle}</h6>
                     <p className='dynamicCardText'>{element.author}</p>
                   </div>
                 </div>

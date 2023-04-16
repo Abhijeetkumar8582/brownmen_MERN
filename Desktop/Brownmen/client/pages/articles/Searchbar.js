@@ -7,14 +7,14 @@ import { useRouter } from 'next/router'
 
 
 function Searchbar({data}) {
-  console.log({data})
   const router = useRouter();
   const [getText, setText] = useState("")
 
 
   const text_change = (event) => {
-    console.log(event.target.value)
-    setText(event.target.value)
+    let get_typing_value = event.target.value
+    let create_slug = get_typing_value.replace(/ /g,"-").toLowerCase()
+    setText(create_slug)
   }
 
   const SearchBlog = (blog_slug) => {
