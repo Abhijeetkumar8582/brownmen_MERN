@@ -32,7 +32,8 @@ function Searchbar({data}) {
   }
   return (
     <>
-      <div className='my-5'></div>
+      
+      
       <h2 className='search_Heading'>Search...</h2>
       <div className='search_box'>
         <div className="container my-5">

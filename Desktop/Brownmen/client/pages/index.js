@@ -44,10 +44,10 @@ function HomePage({ data }) {
   return (
 
     <>
-      <div className='my-5'></div>
+      {/* <div className='my-5'></div> */}
 
       {/* Carousel display */}
-      <div className='container' >
+      <div className='container carousel_index' >
         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
           <div className="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
@@ -56,24 +56,24 @@ function HomePage({ data }) {
           </div>
           <div className="carousel-inner">
             <div id="carousel" className="carousel-item  active" data-bs-interval="10000">
-              <img src="https://images.pexels.com/photos/3094230/pexels-photo-3094230.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} height={500} alt="https://imexed" />
+              <img src="https://images.pexels.com/photos/1547248/pexels-photo-1547248.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} height={500} alt="https://imexed" />
               <div className="carousel-caption d-none d-md-block">
-                <h1 style={{ color: "white", textAlign: "start" }}>First slide label</h1>
-                <p style={{ color: "white", textAlign: "start" }}>Some representative placeholder content for the first slide.</p>
+                <h1 style={{ color: "white", textAlign: "Center" }}>Get Fit and Strong: Tips and Workouts for a Healthy Lifestyle</h1>
+                <p style={{ color: "white", textAlign: "Center" }}> We share workout plans, nutrition advice, and tips on how to stay motivated</p>
               </div>
             </div>
             <div id="carousel" className="carousel-item" data-bs-interval="2000">
-              <img src="https://images.pexels.com/photos/4056535/pexels-photo-4056535.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} height={500} alt="https://imag750&dpr=2" />
+              <img src="https://images.pexels.com/photos/3049225/pexels-photo-3049225.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} height={500} alt="https://imag750&dpr=2" />
               <div className="carousel-caption d-none d-md-block">
-                <h1 style={{ color: "white", textAlign: "start" }}>Second slide label</h1>
-                <p style={{ color: "white", textAlign: "start" }}>Some representative placeholder content for the second slide.</p>
+                <h1 style={{ color: "white", textAlign: "Center" }}>Yoga Mind and Body: A Holistic Guide to Wellness</h1>
+                <p style={{ color: "white", textAlign: "Center" }}>Offers a holistic approach to yoga, including tips for developing a strong mind-body connection, meditation techniques, and nutrition advice.</p>
               </div>
             </div>
             <div id="carousel" className="carousel-item" >
-              <img src="https://images.pexels.com/photos/3900844/pexels-photo-3900844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} height={500} alt="https://images.pe750&dpr=2" />
+              <img src="https://images.pexels.com/photos/3622474/pexels-photo-3622474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} height={500} alt="https://images.pe750&dpr=2" />
               <div className="carousel-caption d-none d-md-block">
-                <h1 style={{ color: "white", textAlign: "start" }}>Third slide label</h1>
-                <p style={{ color: "white", textAlign: "start" }}>Some representative placeholder content for the third slide.</p>
+                <h1 style={{ color: "white", textAlign: "Center" }}>Healthy Habits, Healthy You: A Nutrition Guide for Optimal Health</h1>
+                <p style={{ color: "white", textAlign: "Center" }}>Includes articles on the importance of vitamins and minerals, tips for meal planning, and recipe ideas.</p>
               </div>
             </div>
           </div>
@@ -93,7 +93,7 @@ function HomePage({ data }) {
 
       {/* Fit display */}
       <div className="container my-5 ">
-        <h1>Trending</h1>
+        <h3>Trending</h3>
         <div className="row mx-5 ">
           {data.filter((element)=>element.category==="Fitness").slice(0, 1).map((element, index) => (
             <div className="col-auto my-3 " key={index} >
@@ -133,7 +133,7 @@ function HomePage({ data }) {
       {/* Category display */}
       <div className='Spotlight'>
         <div className='container flex-wrap '>
-          <h1>By Category</h1>
+          <h3>By Category</h3>
           <div className='row mx-4 my-3 '>
             {category.map((element, index) => (
               <div className='col-md-3 my-3 ' key={index}>
@@ -155,7 +155,7 @@ function HomePage({ data }) {
       {/* Fitnes display */}
 
       <div className='container flex-wrap my-5 '>
-        <h1>Top Stories</h1>
+        <h3>Top Stories</h3>
         <div className='row mx-4 my-3 '>
           {data.slice(0, 12).map((element, index) => (
             <div className='col-md-3 my-3 ' key={index}>

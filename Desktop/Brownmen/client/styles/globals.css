@@ -1,3 +1,4 @@
+
 .dynamicCardDisplay{
   max-width: "18rem";
    width: "100%";
@@ -34,7 +35,10 @@
 }
 .search_Heading{
   text-align: center;
-  margin-top: 5%;
+  position:"relative";
+  text-align: center;
+  margin-top: 100px;
+  
 }
 .search_box{
   justify-content: center;
@@ -58,6 +62,11 @@
 max-width: 1000px;
 width: 100%;
 
+}
+.carousel_index{
+  position:"relative";
+  text-align: center;
+  margin-top: 100px;
 }
 
 
@@ -86,9 +95,13 @@ width: 100%;
     max-height:max-content;
    
   }
-  /* .carousel_text_box{
-
-  } */
+  .search_Heading{
+    position:"relative";
+    text-align: center;
+   
+   
+  }
+  
 }
 
 .fa {

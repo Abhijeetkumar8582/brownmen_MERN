@@ -10,6 +10,7 @@ function Admin_user(props) {
     const [blogdesckey, setblogdescKey] = useState('')
 
     const [divCounters, setDivCounters] = useState({});
+    const [inputValues, setInputValues] = useState({});
     setTimeout(() => {
         const options = {
             month: 'numeric',
@@ -38,11 +39,21 @@ function Admin_user(props) {
     const blogauthoreventChange = (event) => {
         setauthor(event.target.value)
     }
-    const blogImageeventChange = () => {
+    const blogImageeventChange = (event) => {
         setimage(event.target.value)
     }
     const expandDiv = () => {
-        setDivCounters(divCounters+1);
+        setDivCounters(divCounters + 1);
+        const newObj = {};
+
+        Object.entries(inputValues).forEach(([key, value]) => {
+            const [str, i, inputType] = key.split("-");
+            if (inputType === "textarea") {
+                newObj[value] = inputValues[`${str}-${i}-input`] || "";
+            }
+        });
+        console.log(inputValues)
+
     };
 
     const renderDivs = () => {
@@ -58,13 +69,29 @@ function Admin_user(props) {
                 }
                 divElements.push(
                     <div key={`${str}-${i}`} className="d-flex justify-content-around">
-                       <textarea  style={{ width: "150px",height:"50px" }}/>
                         <textarea
+                            style={{ width: "150px", height: "50px" }}
+                            value={inputValues[`${str}-${i}-textarea`] || ""}
+                            onChange={(e) =>
+                                setInputValues({
+                                    ...inputValues,
+                                    [`${str}-${i}-textarea`]: e.target.value,
+                                })
+                            }
+                        />
+                        <input
                             type="email"
                             className="value my-3  w-100"
                             style={{ width: "500px", overflowWrap: "break-word" }}
                             id={`exampleFormControlInput2-${str}-${i}`}
                             placeholder={props.str}
+                            value={inputValues[`${str}-${i}-input`] || ""}
+                            onChange={(e) =>
+                                setInputValues({
+                                    ...inputValues,
+                                    [`${str}-${i}-input`]: e.target.value,
+                                })
+                            }
                         />
                         <button onClick={handleDelete} style={{ width: "20px", height: "20px", border: "none" }}>🗑️</button>
                     </div>
@@ -73,15 +100,11 @@ function Admin_user(props) {
             return divElements;
         });
     };
-    
+
     const submit = () => {
-        const blogdescArr = [];
-        Object.entries(divCounters).forEach(([str, count]) => {
-          for (let i = 1; i <= count; i++) {
-            const textareaValue = document.getElementById(`exampleFormControlInput2-${str}-${i}`).value;
-            blogdescArr.push(textareaValue);
-          }
-        })
+        const daa = {
+            "blog": blog
+        }
     }
     return (
         <>
@@ -128,10 +151,10 @@ function Admin_user(props) {
                     <h4>Blog Description</h4>
                 </div>
                 <div className='container '>
-                <button onClick={expandDiv} className='justify-content-center' style={{width:"50vw"}} >Create DIV</button>
+                    <button onClick={expandDiv} className='justify-content-center' style={{ width: "50vw" }} >Create DIV</button>
                 </div>
                 <div className='conatainer'>
-                    {renderDivs()} 
+                    {renderDivs()}
                     <button type="button" className="btn btn-success text-center" onClick={submit}>Submit</button>
                 </div>
 
