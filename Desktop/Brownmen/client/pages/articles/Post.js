@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import NoPost from './NoPost';
+import Head from 'next/head';
 
 function Post({ jsonRes }) {
 
@@ -12,19 +13,24 @@ function Post({ jsonRes }) {
 
   return (
     <>
+      <Head>
+        <title> {jsonRes[0].text}</title>
+      </Head>
 
       <div className='space' style={{ padding: "1px" }}></div>
       <div className=' container box' >
         {getData === undefined ? <NoPost /> : getData.map((item, index) => (
+          
           <div key={index}>
+            
             <div className='container'>
               {item.key.startsWith("topHeading") && <h1 className='text-center my-3'>{(item.text)}</h1>}
               {item.key.startsWith("title") && <h3 className='text-start my-2'>{(item.text).includes("<br/>") ? item.text.replace(/<br\/>/g, "<br>") : " "}</h3>}
-              {item.key.startsWith("heading") && <p className='text-start my-2'>{(item.text)}</p>}
-              {item.key.startsWith("subheading") && <p className='text-start my-2'>{(item.text)}</p>}
+              {item.key.startsWith("heading") && <p className='text-start my-2'>{(item.text.replace('<br/>'," "))}</p>}
+              {item.key.startsWith("subheading") && <p className='text-start my-2'>{(item.text.replace("<br/>"," "))}</p>}
               {item.key.startsWith("content") && <p className='text-start my-2'>{(item.text)}</p>}
               <div className='d-flex justify-content-center'>
-                {item.key.startsWith("image") && <img src={(item.text)} style={{ width: "100%", maxWidth: "500px",height:"100%",maxHeight:"500px" }} alt="Dynamic Image" />}
+                {item.key.startsWith("image") && <img src={(item.text)} style={{ width: "100%", maxWidth: "500px",height:"100%",maxHeight:"500px" }}onError={(e) => { e.target.onerror = null; e.target.src = "https://images.pexels.com/photos/5000455/pexels-photo-5000455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"; }} alt={jsonRes[0].text} />}
               </div>
             </div>
           </div>

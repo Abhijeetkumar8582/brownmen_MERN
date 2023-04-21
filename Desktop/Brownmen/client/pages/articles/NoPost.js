@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
+import Head from 'next/head'
 
 
 
@@ -31,6 +32,9 @@ function NoPost() {
     }
     return (
         <>
+        <Head>
+        <title> No Post</title>
+      </Head>
             <div className='container'>
                 <h1 className='text-center my-5'>Looks like we didn't find any results for that</h1>
                 <h4 className='text-center my-5'>Search by category</h4>

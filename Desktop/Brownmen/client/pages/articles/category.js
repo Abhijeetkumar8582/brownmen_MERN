@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 
 
 
@@ -59,11 +60,13 @@ function Category({ data }) {
 
   return (
     <>
-
+       <Head>
+        <title> {category}</title>
+      </Head>
       <div className='my-5'></div>
       <div className='row '>
         <div className='col'>
-          <Image src={carousel_Image} style={{ width: "100%", height: "100%" }} width={500} height={500} alt="https://images.pe750&dpr=2" />
+          <Image src={carousel_Image} style={{ width: "100%", height: "100%" }} width={500} height={500} alt={carousel_Image}/>
         </div>
         <div className='col carousel_text_box' style={{ backgroundColor: getColor }}>
           <h1 className='text-center' style={{ top: "30%", position: "relative", color: "white" }}>{carousel_tittle}</h1>

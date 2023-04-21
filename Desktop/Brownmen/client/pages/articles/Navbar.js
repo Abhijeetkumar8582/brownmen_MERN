@@ -42,7 +42,7 @@ function Navbar() {
                 <Link className="nav-link mx-2 my-3" href="#" onClick={() => onNavbarClick("Health")}><b>Health</b></Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link mx-2 my-3" href="#" onClick={() => onNavbarClick("yoga")}><b>Yoga</b></Link>
+                <Link className="nav-link mx-2 my-3" href="#" onClick={() => onNavbarClick("Yoga")}><b>Yoga</b></Link>
               </li>
             </ul>
             <button className="btn btn-outline-success" onClick={seachBar} type="submit"><b>Search</b></button>

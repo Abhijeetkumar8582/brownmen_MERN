@@ -1,7 +1,8 @@
 
 import Image from 'next/legacy/image';
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+import Head from 'next/head'
 
 
 
@@ -24,29 +25,30 @@ function HomePage({ data }) {
       query: { category: category }
     })
   }
-  
+
   const category = [
     {
-      "key":"https://images.pexels.com/photos/3490348/pexels-photo-3490348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "heading":"Nutrition"
-    },{
-      "key":"https://images.pexels.com/photos/1998920/pexels-photo-1998920.jpeg",
-      "heading":"Fitness"
-    },{
-      "key":"https://images.pexels.com/photos/5648355/pexels-photo-5648355.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "heading":"Health"
-    },{
-      "key":"https://images.pexels.com/photos/1051838/pexels-photo-1051838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "heading":"yoga"
+      "key": "https://images.pexels.com/photos/3490348/pexels-photo-3490348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "heading": "Nutrition"
+    }, {
+      "key": "https://images.pexels.com/photos/1998920/pexels-photo-1998920.jpeg",
+      "heading": "Fitness"
+    }, {
+      "key": "https://images.pexels.com/photos/5648355/pexels-photo-5648355.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "heading": "Health"
+    }, {
+      "key": "https://images.pexels.com/photos/1051838/pexels-photo-1051838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "heading": "yoga"
     }
   ]
 
   return (
 
     <>
-      {/* <div className='my-5'></div> */}
+      <Head>
+        <title> Brownmen</title>
+      </Head>
 
-      {/* Carousel display */}
       <div className='container carousel_index' >
         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
           <div className="carousel-indicators">
@@ -95,11 +97,11 @@ function HomePage({ data }) {
       <div className="container my-5 ">
         <h3>Trending</h3>
         <div className="row mx-5 ">
-          {data.filter((element)=>element.category==="Fitness").slice(0, 1).map((element, index) => (
+          {data.filter((element) => element.category === "Fitness").slice(0, 1).map((element, index) => (
             <div className="col-auto my-3 " key={index} >
               <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
                 <div className="dynamicCardDisplay" style={{ maxWidth: "650px", width: "100%" }} >
-                  <Image loading='lazy' className="" src={element.image} width={358} layout="responsive" height={500} alt="Card image cap" />
+                  <Image loading='lazy' className="" src={element.image} width={358} layout="responsive" height={500} alt={element.image} />
                   <div className="card-body">
                     <p className="card-text" style={{ color: "black" }}>{element.blogtitle}</p>
                   </div>
@@ -109,7 +111,7 @@ function HomePage({ data }) {
           ))}
           <div className="col">
             <div className="row my-3">
-              {data.filter((element)=>element.category==="yoga").slice(0, 4).map((element, index) => (
+              {data.filter((element) => element.category === "Yoga").slice(0, 4).map((element, index) => (
                 <div className="col-md-5 mb-4 " key={index}>
                   <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
                     <div className="dynamicCardDisplay" >

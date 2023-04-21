@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 function Footer() {
@@ -8,7 +9,7 @@ function Footer() {
           <div className='d-flex justify-content-between align-items-center' style={{ color: "white" }}>
             <div>
               <a>● Terms</a>
-              <a>  ● Privacy</a>
+              <Link href='/articles/Privacy'>  ● Privacy</Link>
             </div>
             <div>
               <a href="#" className="fa fa-facebook"></a>
@@ -17,7 +18,7 @@ function Footer() {
               <a href="#" className="fa fa-linkedin"></a>
             </div>
             <div>
-              <p className=' align-items-center'>© 2023 Brownmen</p>
+              <h6 className='my-1'>© 2023 Brownmen</h6>
             </div>
           </div>
         </div>
