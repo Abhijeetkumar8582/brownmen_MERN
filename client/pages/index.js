@@ -114,16 +114,16 @@ function HomePage({ data }) {
       </div>
 
       {/* Fit display */}
-      <div className="container my-5 ">
+      <div className="">
         <h3>Trending</h3>
-          <div className="col">
-            <div className="row my-3">
+          {/* <div className="col"> */}
+            <div className="" style={{display:'flex',justifyContent:'center',flexWrap:'wrap',gap:'10px',padding:'3rem'}}>
               {data.filter((element) => element.category === "Yoga").slice(0, 8).map((element, index) => (
-                <div className="col-md-3 mb-4 " key={index}>
+                <div className="" key={index}>
                   <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
                     <div class="card">
                       <div class="image">
-                      <Image loading='lazy' src={element.image} width={300} height={150} className="card-img-top" alt={element.image} />
+                      <Image loading='lazy' src={element.image} width={300} height={150} style={{borderRadius:'1rem 1rem 0rem 0rem', objectFit: 'cover'}} alt={element.image} />
                      
                       </div>
                       <div class="content">
@@ -150,7 +150,7 @@ function HomePage({ data }) {
               ))}
             </div>
           </div>
-        </div>
+        {/* </div> */}
       {/* </div> */}
 
 
@@ -174,7 +174,7 @@ function HomePage({ data }) {
                   <div className="card__descr-wrapper">
                     <div>
                       <p className="Blog_Container_Main_div_card__title">
-                        {element.blogtitle.slice(0, 40)}
+                        {element.blogtitle}
                       </p>
                     </div>
                     <div>
