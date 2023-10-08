@@ -82,21 +82,21 @@ function Category({ data }) {
           {data.slice(0, 12).map((element, index) => (
             <div className='' style={{gap:'5px'}} key={index}>
               <Link href='#' onClick={() => refirect_to_post(element.slug)} style={{ textDecoration: "none" }}>
-                <div class="Blogcard">
-                  <div class="Blogcard-image">
+                <div className="Blogcard">
+                  <div className="Blogcard-image">
                   <Image loading='lazy' src={element.image} width={330} height={170} style={{borderRadius:'5px'}} className="card-img-top" alt={element.blogtitle} />
                   </div>
                   <div style={{maxHeight:'250px'}}>
                   <div style={{height:'15%'}}>
-                  <p class="Blogcard-title">{element.blogtitle}</p>
+                  <p className="Blogcard-title">{element.blogtitle}</p>
                  </div>
                  <div style={{height:'70%'}}>
-                  <p class="Blogcard-body">
+                  <p className="Blogcard-body">
                   {element.blog_desc[2].text.slice(0, 150).replace("<br/>", " ")}...
                      </p>
                   </div>
                   <div style={{height:'15%'}}>
-                  <p class="Blogcard_footer"><span class="by-name">{element.author}</span></p>
+                  <p className="Blogcard_footer"><span className="by-name">{element.author}</span></p>
                   </div>
                   </div>
                 </div>

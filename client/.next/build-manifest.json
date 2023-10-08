@@ -29,6 +29,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/articles/Post.js"
+    ],
+    "/articles/category": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/articles/category.js"
     ]
   },
   "ampFirstPages": []

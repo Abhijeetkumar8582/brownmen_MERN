@@ -103,7 +103,7 @@ function HomePage({ data }) {
                       {element.heading.charAt(0).toUpperCase() + element.heading.slice(1)}
                     </div>
                     <div className="toast-icon">
-                      <i class="fa fa-external-link" aria-hidden="true"></i>
+                      <i className="fa fa-external-link" aria-hidden="true"></i>
                     </div>
                   </div>
                 </Link>
@@ -121,23 +121,23 @@ function HomePage({ data }) {
               {data.filter((element) => element.category === "Yoga").slice(0, 8).map((element, index) => (
                 <div className="" key={index}>
                   <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
-                    <div class="card">
-                      <div class="image">
+                    <div className="card">
+                      <div className="image">
                       <Image loading='lazy' src={element.image} width={300} height={150} style={{borderRadius:'1rem 1rem 0rem 0rem', objectFit: 'cover'}} alt={element.image} />
                      
                       </div>
-                      <div class="content">
+                      <div className="content">
                         <a href="#">
-                          <span class="title">
+                          <span className="title">
                           {element.blogtitle}
                           </span>
                         </a>
 
-                        <p class="desc">
+                        <p className="desc">
                         {element.blog_desc[2].text.slice(0, 170).replace("<br/>", " ")}....
                          </p>
 
-                        <a class="action" href="#">
+                        <a className="action" href="#">
                           Find out more
                           <span aria-hidden="true">
                             →
