@@ -2,53 +2,45 @@ import React, { useEffect, useState } from 'react'
 import NoPost from './NoPost';
 import Head from 'next/head';
 import { headers } from '@/next.config';
+import { yogaTags, nutritionTags, fitnessTags, healthTags, yogaBenefits } from './Tags'
 
 function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
-  console.log(jsonRes2);
+ 
   const [getData, setData] = useState([])
   const [sugesstionArr, setsugesstionArr] = useState([])
+  const [blogPostRelevantTag, setblogPostRelevantTag] = useState([])
+  const [blogTags, setBlogTags] = useState([])
+  const shuffledArray = yogaBenefits.slice();
 
+  let postTag = []
+ 
+  console.log(postTag)
   useEffect(() => {
     setData(jsonRes)
     setsugesstionArr(jsonRes2)
-  }, [setData, setsugesstionArr])
-  // console.log(getData)
-  // const [sugesstionArr, setsugesstionArr] = useState([])
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const headers = new Headers();
-  //       headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
-  //       const response = await fetch(`http://localhost:4001/category/all_blog`, {
-  //         headers: headers,
-  //         mode:'no-cors'
-  //       });
-  //       if (response.ok) {
-  //         const data = await response.json();
-
-  //         setsugesstionArr(data);
-  //       } else {
-  //         console.error('Network response was not ok');
-  //       }
-  //     } catch (error) {
-  //       console.error('Fetch error:', error);
-  //     }
-  //   }
-
-  //   fetchData();
-  // }, []);
 
 
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+    }
+    setblogPostRelevantTag(shuffledArray)
+    if (blog_category === "Yoga") {
+      postTag = yogaTags.slice(0)
+    } else if (blog_category === "Fitness") {
+      postTag = fitnessTags.slice(0)
+    } else if (blog_category === "Health") {
+      postTag = healthTags.slice(0)
+    } else {
+      postTag = nutritionTags.slice(0)
+    }
+    for (let i = postTag.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [postTag[i], postTag[j]] = [postTag[j], postTag[i]];
+    }
+    setBlogTags(postTag)
+  }, [setData, setsugesstionArr, setblogPostRelevantTag])
 
-  const postTags = ["a", "b", "c"]
-  const yogaBenefits = [
-    "Improved flexibility",
-    "Increased strength",
-    "Stress reduction",
-    "Enhanced mental clarity",
-    "Better posture and alignment"
-  ];
 
 
   return (
@@ -62,9 +54,9 @@ function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
         <div className='blogPost_Main_div_sub_Div_one'>
           <div className='blogPost_Main_div_sub_Div_one_subDiv'>
             <div className='blogPost_Main_div_sub_Div_one_subDiv_tag'>
-              {postTags.map((element, i) => (
+              {blogTags.slice(0, 3).map((element, i) => (
                 <div className='postTags' key={i}>
-                  <h6>Marketing</h6>
+                  <h6>{element}</h6>
                 </div>
               ))}
             </div>
@@ -93,25 +85,19 @@ function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
             </div>
           </div>
         </div>
-        <div style={{ display: "flex",position:'relative' }}>
+        <div style={{ display: "flex", position: 'relative' }}>
           <div className='blogPost_Main_div_sub_Div_two'>
             {getData === undefined ? <NoPost /> : getData.slice(3).map((item, index) => (
               <div key={index}>
 
                 <div className='my-3'>
-                  {item.key.startsWith("heading") && <p  className='text_justify'>{(item.text.replace(/<br\s*\/?>/g, ' '))}</p>}
-                  {item.key.startsWith("image") && <div style={{height:" 250px"}}><img src={(item.text)} style={{ width: '100%',height:'100%',objectFit:'cover' }} onError={(e) => {e.target.src = 'https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_640.jpg'}} /></div>}
-                  {item.key.startsWith("subheading") && <p  className='text_justify'>{(item.text.replace(/<br\s*\/?>/g, ' '))}</p>}
-                  {item.key.startsWith("content") && <p  className='text_justify'>{(item.text.replace(/<br\s*\/?>/g, ' '))}</p>}
-                  {item.key.startsWith("title") && <p  className='text_justify'><b>{(item.text.replace(/<br\s*\/?>/g, ' '))}</b></p>}
-                
+                  {item.key.startsWith("heading") && <p className='text_justify'>{(item.text.replace(/<br\s*\/?>/g, ' ')).replace(/\*\*/g, ' ')}</p>}
+                  {item.key.startsWith("image") && <div style={{ height: " 250px" }}><img src={(item.text)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = 'https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_640.jpg' }} /></div>}
+                  {item.key.startsWith("subheading") && <p className='text_justify'>{(item.text.replace(/<br\s*\/?>/g, ' '))}</p>}
+                  {item.key.startsWith("content") && <p className='text_justify'>{(item.text.replace(/<br\s*\/?>/g, ' '))}</p>}
+                  {item.key.startsWith("title") && <p className='text_justify'><b>{(item.text.replace(/<br\s*\/?>/g, ' '))}</b></p>}
+
                 </div>
-                {/* <div className='my-3'>
-                  {item.key.startsWith("heading") && <p  className='text_justify'>{(item.text.replace(/<br\s*\/?>/g, ' '))}</p>}
-                  {item.key.startsWith("image") && <img src={(item.text)} style={{ width: '400px' }} />}
-                  {item.key.startsWith("subheading") && <p  className='text_justify'>{(item.text.replace(/<br\s*\/?>/g, ' '))}</p>}
-                  {item.key.startsWith("content") && <p  className='text_justify'>{(item.text.replace(/<br\s*\/?>/g, ' '))}</p>}
-                </div> */}
               </div>))}
           </div>
           <div className='blogPost_Main_div_sub_Div_three'>
@@ -120,7 +106,7 @@ function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
                 <h6>Tag</h6>
               </div>
               <div className='postBendefits_Tag'>
-                {yogaBenefits.map((element, i) => (
+                {blogPostRelevantTag.slice(0, 5).map((element, i) => (
                   <div className='postBendefits_Tag_div' key={i}>
                     <h6>{element}</h6>
                   </div>
@@ -129,7 +115,7 @@ function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
             </div>
             <div className='Other_blog_post_Main_div'>
               <div className='Other_blog_post_Main_div_post_text'>
-                <h6>other blog post</h6>
+                <h6>Other blog post</h6>
               </div>
               <div style={{ display: 'flex' }}>
                 <div className='Suggestion_card_Main_Div'>

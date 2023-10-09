@@ -64,46 +64,46 @@ function Category({ data }) {
         <title> {category}</title>
       </Head>
       <div className='my-5'></div>
-      <div className='categoryMainDiv' style={{display:'flex',maxHeight:'400px'}}>
+      <div className='categoryMainDiv' style={{ display: 'flex', maxHeight: '400px' }}>
         <div className='categoryMainDiv_containerOne' >
           <Image src={carousel_Image} style={{ width: "100%", height: "100%" }} width={500} height={500} alt={carousel_Image} />
         </div>
-        <div className='categoryMainDiv_containerTwo' style={{ backgroundColor: getColor}}>
+        <div className='categoryMainDiv_containerTwo' style={{ backgroundColor: getColor }}>
           <h1 >{carousel_tittle}</h1>
           <h5 >{carousel_description}</h5>
         </div>
       </div>
 
 
-
-      {/* <div className='container flex-wrap  '> */}
+      <div style={{padding:'2rem'}}>
         <h1>Featured</h1>
-        <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap',gap:'15px',margin:'50px 5px'}}>
-          {data.slice(0, 12).map((element, index) => (
-            <div className='' style={{gap:'5px'}} key={index}>
-              <Link href='#' onClick={() => refirect_to_post(element.slug)} style={{ textDecoration: "none" }}>
-                <div className="Blogcard">
-                  <div className="Blogcard-image">
-                  <Image loading='lazy' src={element.image} width={330} height={170} style={{borderRadius:'5px'}} className="card-img-top" alt={element.blogtitle} />
+        </div>
+      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '15px', margin: '50px 5px' }}>
+        {data.slice(0, 12).map((element, index) => (
+          <div className='' style={{ gap: '5px' }} key={index}>
+            <Link href='#' onClick={() => refirect_to_post(element.slug)} style={{ textDecoration: "none" }}>
+              <div className="Blogcard">
+                <div className="Blogcard-image">
+                  <Image loading='lazy' src={element.image} width={330} height={170} style={{ borderRadius: '5px' }} className="card-img-top" alt={element.blogtitle} />
+                </div>
+                <div style={{ maxHeight: '250px' }}>
+                  <div style={{ height: '15%' }}>
+                    <p className="Blogcard-title">{element.blogtitle}</p>
                   </div>
-                  <div style={{maxHeight:'250px'}}>
-                  <div style={{height:'15%'}}>
-                  <p className="Blogcard-title">{element.blogtitle}</p>
-                 </div>
-                 <div style={{height:'70%'}}>
-                  <p className="Blogcard-body">
-                  {element.blog_desc[2].text.slice(0, 150).replace("<br/>", " ")}...
-                     </p>
+                  <div style={{ height: '70%' }}>
+                    <p className="Blogcard-body">
+                      {element.blog_desc[2].text.slice(0, 150).replace("<br/>", " ")}...
+                    </p>
                   </div>
-                  <div style={{height:'15%'}}>
-                  <p className="Blogcard_footer"><span className="by-name">{element.author}</span></p>
-                  </div>
+                  <div style={{ height: '15%' }}>
+                    <p className="Blogcard_footer"><span className="by-name">{element.author}</span></p>
                   </div>
                 </div>
-              </Link>
-            </div>
-          ))}
-        </div>
+              </div>
+            </Link>
+          </div>
+        ))}
+      </div>
       {/* </div> */}
     </>
   )
