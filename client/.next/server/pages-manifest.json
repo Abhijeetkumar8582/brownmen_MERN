@@ -2,7 +2,5 @@
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/articles/Post": "pages/articles/Post.js",
-  "/articles/Searchbar": "pages/articles/Searchbar.js",
-  "/": "pages/index.js"
+  "/articles/Searchbar": "pages/articles/Searchbar.js"
 }

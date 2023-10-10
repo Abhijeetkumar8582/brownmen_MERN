@@ -36,7 +36,7 @@ function Searchbar({data}) {
       
       <h2 className='search_Heading'>Search...</h2>
       <div className='search_box'>
-        <div className="container my-5">
+        <div className="container container_Div">
           <input type="text" className='search_box' onChange={text_change} onKeyDown={(event) => {
             if (event.key === 'Enter') { SearchBox(getText) }
           }} placeholder="Search your blog here..." />
@@ -44,26 +44,34 @@ function Searchbar({data}) {
       </div>
 
 
-      <div className='container flex-wrap my-5 '>
-        <h1>Latest Articles</h1>
-        {data.slice(0, 8).map((element, index) => (
-          <div className="card mb-3" key={index} style={{ maxWidth: "100vw", width: "100%", color: "black" }}>
-            <Link href='#' onClick={() => SearchBlog(element.slug)} style={{ textDecoration: "none" }}>
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <Image loading='lazy' src={element.image} width={285} height={220} className="card-img-top" alt={element.image} />
+      <div className='my-2'>
+        <h1 className='Featured_text_' style={{marginLeft:'1rem'}}>Latest Articles</h1>
+        <div className='Blogcard_Main_div'>
+        {data.slice(0, 12).map((element, index) => (
+          <div className='' style={{ gap: '5px' }} key={index}>
+            <Link href='#' onClick={() => refirect_to_post(element.slug)} style={{ textDecoration: "none" }}>
+              <div className="Blogcard">
+                <div className="Blogcard-image">
+                  <Image loading='lazy' src={element.image} width={330} height={170} style={{ borderRadius: '5px' }} className="card-img-top" alt={element.blogtitle} />
                 </div>
-                <div className="col-md-8">
-                  <div className="card-body" style={{ color: "black" }}>
-                    <h5 className="card-title">{element.blogtitle}</h5>
-                    <p className="card-text">{element.blog_desc[2].text}</p>
-                    <p className="card-text"><small className="text-muted">{element.category} || {element.author}</small></p>
+                <div style={{ maxHeight: '250px' }}>
+                  <div style={{ height: '15%' }}>
+                    <p className="Blogcard-title">{element.blogtitle}</p>
+                  </div>
+                  <div style={{ height: '70%' }}>
+                    <p className="Blogcard-body">
+                      {element.blog_desc[2].text.slice(0, 150).replace("<br/>", " ")}...
+                    </p>
+                  </div>
+                  <div style={{ height: '15%' }}>
+                    <p className="Blogcard_footer"><span className="by-name">{element.author}</span></p>
                   </div>
                 </div>
               </div>
             </Link>
           </div>
         ))}
+      </div>
       </div>
 
 

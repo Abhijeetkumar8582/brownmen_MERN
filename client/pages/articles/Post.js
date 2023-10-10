@@ -56,24 +56,34 @@ function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
             <div className='blogPost_Main_div_sub_Div_one_subDiv_tag'>
               {blogTags.slice(0, 3).map((element, i) => (
                 <div className='postTags' key={i}>
-                  <h6>{element}</h6>
+                  <h6 className='Mobile_text'>{element}</h6>
                 </div>
               ))}
             </div>
             <div className='postDate'>
-              <h6>{insertDate.slice(0, 8)}</h6>
+              <h6 className='Mobile_text'>{insertDate.slice(0, 8)}</h6>
             </div>
             <div className='ReadTime'>
-              <h6>10 Min Read</h6>
+              <h6 className='Mobile_text'>10 Min Read</h6>
             </div>
           </div>
           <div className='shareIcon'>
-            <h6>Share</h6>
-
+            <h6 className='Mobile_text'>Share</h6>
+            <div style={{display:'flex',gap:'5px'}}>
+          <div>
+          <i class="fa fa-facebook" aria-hidden="true" style={{color:'black',fontSize:'17px'}}></i>
+          </div>
+          <div>
+          <i class="fa fa-twitter" aria-hidden="true" style={{color:'black',fontSize:'17px'}}></i>
+          </div>
+          <div>
+          <i class="fa fa-linkedin" aria-hidden="true" style={{color:'black',fontSize:'17px'}}></i>
+          </div>
+        </div>
           </div>
         </div>
         <div style={{ display: 'flex' }}>
-          <div>
+          <div style={{width:'100%'}}> 
             <div>
               <h1>{jsonRes[0].text} </h1>
             </div>
@@ -85,7 +95,7 @@ function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
             </div>
           </div>
         </div>
-        <div style={{ display: "flex", position: 'relative' }}>
+        <div className='blogPost_Head_div' >
           <div className='blogPost_Main_div_sub_Div_two'>
             {getData === undefined ? <NoPost /> : getData.slice(3).map((item, index) => (
               <div key={index}>
@@ -108,7 +118,7 @@ function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
               <div className='postBendefits_Tag'>
                 {blogPostRelevantTag.slice(0, 5).map((element, i) => (
                   <div className='postBendefits_Tag_div' key={i}>
-                    <h6>{element}</h6>
+                    <h6 className='Mobile_text'>{element}</h6>
                   </div>
                 ))}
               </div>

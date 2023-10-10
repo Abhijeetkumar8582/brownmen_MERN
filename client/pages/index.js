@@ -59,21 +59,21 @@ function HomePage({ data }) {
           <div className="carousel-inner">
             <div id="carouselOne" className="carousel-item  active" data-bs-interval="10000">
               <img src="https://images.pexels.com/photos/1547248/pexels-photo-1547248.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} style={{objectFit:'cover',width:'100%'}} height={500} alt="https://imexed" />
-              <div className="carousel-caption d-none d-md-block">
+              <div className="carousel-caption ">
                 <h1 style={{ color: "white", textAlign: "Center" }}>Get Fit and Strong: Tips and Workouts for a Healthy Lifestyle</h1>
                 <p style={{ color: "white", textAlign: "Center" }}> We share workout plans, nutrition advice, and tips on how to stay motivated</p>
               </div>
             </div>
             <div id="carouselTwo" className="carousel-item" data-bs-interval="2000">
               <img src="https://images.pexels.com/photos/3049225/pexels-photo-3049225.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} style={{objectFit:'cover'}} height={500} alt="https://imag750&dpr=2" />
-              <div className="carousel-caption d-none d-md-block">
+              <div className="carousel-caption ">
                 <h1 style={{ color: "white", textAlign: "Center" }}>Yoga Mind and Body: A Holistic Guide to Wellness</h1>
                 <p style={{ color: "white", textAlign: "Center" }}>Offers a holistic approach to yoga, including tips for developing a strong mind-body connection, meditation techniques, and nutrition advice.</p>
               </div>
             </div>
             <div id="carouselThree" className="carousel-item" >
               <img src="https://images.pexels.com/photos/3622474/pexels-photo-3622474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} style={{objectFit:'cover'}} height={500} alt="https://images.pe750&dpr=2" />
-              <div className="carousel-caption d-none d-md-block">
+              <div className="carousel-caption">
                 <h1 style={{ color: "white", textAlign: "Center" }}>Healthy Habits, Healthy You: A Nutrition Guide for Optimal Health</h1>
                 <p style={{ color: "white", textAlign: "Center" }}>Includes articles on the importance of vitamins and minerals, tips for meal planning, and recipe ideas.</p>
               </div>
@@ -94,9 +94,9 @@ function HomePage({ data }) {
 {/* Category display */}
 <div className='Spotlight'>
         <div className='flex-wrap '>
-          <div className='row mx-4 my-3 '>
+          <div className='categoryDiv_main_div' >
             {category.map((element, index) => (
-              <div className='col-md-3 my-3 ' key={index}>
+              <div className='' key={index} style={{width:'100%'}}>
                 <Link href='#' onClick={() => onNavbarClick(element.heading)} style={{ textDecoration: "none" }}>
                   <div className="categoryDiv">
                     <div className="toastContent">
@@ -114,10 +114,10 @@ function HomePage({ data }) {
       </div>
 
       {/* Fit display */}
-      <div className="" style={{padding:'2rem'}}>
-        <h3>Trending</h3>
-            <div className="" style={{display:'flex',justifyContent:'center',flexWrap:'wrap',gap:'20px',padding:'3rem 2rem'}}>
-              {data.filter((element) => element.category === "Yoga").slice(0, 8).map((element, index) => (
+      <div className="Trending_div" >
+        <h3 className='Featured_text_'>Trending</h3>
+            <div className="Trending_Main_div">
+              {data.filter((element) => element.category === "Yoga").slice(0, 9).map((element, index) => (
                 <div className="" key={index}>
                   <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
                     <div className="card">
@@ -125,22 +125,22 @@ function HomePage({ data }) {
                       <Image loading='lazy' src={element.image} width={300} height={150} style={{borderRadius:'5px 5px 0rem 0rem', objectFit: 'cover'}} alt={element.image} />
                       </div>
                       <div className="content">
-                        <a href="#">
+                       {/* <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}> */}
                           <span className="title">
                           {element.blogtitle}
                           </span>
-                        </a>
+                       {/* </Link> */} 
 
                         <p className="desc">
                         {element.blog_desc[2].text.slice(0, 170).replace("<br/>", " ")}....
                          </p>
 
-                        <a className="action" href="#">
-                          Find out more
+                        <button className="action" >
+                          Know more
                           <span aria-hidden="true">
                             →
                           </span>
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </Link>
@@ -152,11 +152,11 @@ function HomePage({ data }) {
 
       {/* Fitnes display */}
 
-      <div className='' style={{padding:'2rem'}}>
-        <h3>Top Stories</h3>
+      <div className='Blog_Container_Head_div' style={{padding:'2rem'}}>
+        <h3 className='Featured_text_'>Top Stories</h3>
         <div className='Blog_Container_Main_div '>
           {data.slice(0, 12).map((element, index) => (
-            <div className='col-md-3 my-4 ' key={index}>
+            <div className='' key={index}>
               <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
                 <div className="Blog_Container_Main_div_card">
                   <div className="card__img">
