@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import NoPost from './NoPost';
 import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
   const yogaTags = ["Yoga", "YogaPoses", "Meditation", "YogaLife", "HealthyLiving", "Wellness", "Fitness", "Mindfulness", "YogaJourney", "YogaCommunity", "YogaPractice", "YogaInspiration", "YogaFlow", "YogaTeacher", "YogaEveryday", "StressRelief", "Flexibility", "Strength", "Balance", "InnerPeace"];
@@ -8,7 +11,7 @@ function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
   const fitnessTags = ["Fitness", "FitnessJourney", "Workout", "Exercise", "HealthyLifestyle", "StrengthTraining", "Cardio", "GymLife", "FitLife", "FitnessMotivation", "FitnessGoals", "ActiveLifestyle", "HealthAndFitness", "Weightlifting", "CrossFit", "Running", "Bodybuilding", "Wellness", "Nutrition", "FitnessCommunity"]
   const healthTags = ["Health", "HealthyLiving", "Wellness", "Healthcare", "HealthTips", "HolisticHealth", "MentalHealth", "PhysicalHealth", "WellBeing", "SelfCare", "HealthyChoices", "MindBodyHealth", "HealthAndWellness", "HealthyHabits", "Nutrition", "HealthyMind", "HealthyBody", "WellnessJourney", "FitnessForHealth", "HealthyLifestyle"]
   const yogaBenefits = ["Improved flexibility", "Increased strength", "Stress reduction", "Enhanced mental clarity", "Better posture and alignment", "Mind-body connection", "Relaxation", "Inner peace", "Weight management", "Improved balance", "Cardiovascular health", "Respiratory health", "Pain relief", "Flexibility", "Muscle tone", "Mood enhancement", "Better sleep", "Digestive health", "Energy boost", "Spiritual growth"];
-
+  const router = useRouter()
   const [getData, setData] = useState([])
   const [sugesstionArr, setsugesstionArr] = useState([])
   const [blogPostRelevantTag, setblogPostRelevantTag] = useState([])
@@ -43,7 +46,13 @@ function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
   }, [setData, setsugesstionArr, setblogPostRelevantTag])
 
 
+  const handleCLick = (blog_slug) => {
+    router.push({
+      pathname: 'Post',
+      query: { blog_slug: blog_slug },
 
+    })
+  }
   return (
     <>
       <Head>
@@ -99,7 +108,7 @@ function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
               <h6 className='text_justify'>{jsonRes[2].text.replace(/<br\s*\/?>/g, ' ')}</h6>
             </div>
             <div className='blogPost_first_image_div'>
-              <img src={jsonRes[1].text} className='blogPost_first_image_div_image' alt={jsonRes[1].text} />
+              <Image  loading='lazy' width={900} height={300} src={jsonRes[1].text} className='blogPost_first_image_div_image' alt={jsonRes[1].text} />
             </div>
           </div>
         </div>
@@ -110,7 +119,7 @@ function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
 
                 <div className='my-3'>
                   {item.key.startsWith("heading") && <p className='text_justify'>{(item.text.replace(/<br\s*\/?>/g, ' ')).replace(/\*\*/g, ' ')}</p>}
-                  {item.key.startsWith("image") && <div style={{ height: " 250px" }}><img src={(item.text)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = 'https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_640.jpg' }} /></div>}
+                  {item.key.startsWith("image") && <div style={{ height: " 250px" }}><Image width={400} loading='lazy' height={400} alt={(item.text)} src={(item.text)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.src = 'https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_640.jpg' }} /></div>}
                   {item.key.startsWith("subheading") && <p className='text_justify'>{(item.text.replace(/<br\s*\/?>/g, ' '))}</p>}
                   {item.key.startsWith("content") && <p className='text_justify'>{(item.text.replace(/<br\s*\/?>/g, ' '))}</p>}
                   {item.key.startsWith("title") && <p className='text_justify'><b>{(item.text.replace(/<br\s*\/?>/g, ' '))}</b></p>}
@@ -137,20 +146,22 @@ function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
               </div>
               <div style={{ display: 'flex' }}>
                 <div className='Suggestion_card_Main_Div'>
-                  {sugesstionArr.filter((element) => element.category === blog_category).slice(0, 2).map((element, i) => (
-                    <div className="Suggestion_card" key={i}>
-                      <div className="Suggestion_card_header">
-                        <div>
-                          <h6 className="title">
-                            {element.blogtitle}
-                          </h6>
-                          <p className="Suggestion_card_name">{element.author}</p>
+                  {sugesstionArr.filter((element) => element.category === blog_category && element.blogtitle !== jsonRes[0].text).slice(2, 4).map((element, i) => (
+                    <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }} key={i}>
+                      <div className="Suggestion_card">
+                        <div className="Suggestion_card_header">
+                          <div>
+                            <h6 className="title">
+                              {element.blogtitle}
+                            </h6>
+                            <p className="Suggestion_card_name">{element.author}</p>
+                          </div>
+                          <span className="Suggestion_card_image">
+                            <Image loading='lazy' width={100} height={100} src={element.image} style={{ width: '100%', objectFit: 'cover', borderRadius: '10px', height: '100%' }} />
+                          </span>
                         </div>
-                        <span className="Suggestion_card_image">
-                          <img src={element.image} style={{ width: '100%', objectFit: 'cover', borderRadius: '10px', height: '100%' }} />
-                        </span>
                       </div>
-                    </div>))}
+                    </Link>))}
                 </div>
               </div>
             </div>

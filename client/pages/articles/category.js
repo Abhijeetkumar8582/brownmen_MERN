@@ -74,7 +74,7 @@ function Category({ data }) {
       <div className='my-5'></div>
       <div className='categoryMainDiv'>
         <div className='categoryMainDiv_containerOne' >
-          <Image src={carousel_Image} style={{ width: "100%", height: "100%", objectFit: 'cover' }} width={500} height={500} alt={carousel_Image} />
+          <Image loading='lazy' src={carousel_Image} style={{ width: "100%", height: "100%", objectFit: 'cover' }} width={500} height={500} alt={carousel_Image} />
         </div>
         <div className='categoryMainDiv_containerTwo' style={{ background: getColor }}>
           <h1 >{carousel_tittle}</h1>
