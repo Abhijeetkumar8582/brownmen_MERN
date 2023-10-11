@@ -32,9 +32,18 @@ function NoPost() {
     }
     return (
         <>
-        <Head>
-        <title> No Post</title>
-      </Head>
+            <Head>
+                <title> No Post</title>
+
+                <meta property="og:title" content="Brownmen" />
+                <meta property="og:description" content={category[0].heading} />
+                <meta property="og:image" content={category[0].key} />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="628" />
+                <meta property="og:url" content="https://brownmen.netlify.app" />
+                <meta property="og:type" content="website" />
+            </Head>
+
             <div className='container'>
                 <h1 className='text-center my-5'>Looks like we didn't find any results for that</h1>
                 <h4 className='text-center my-5'>Search by category</h4>
