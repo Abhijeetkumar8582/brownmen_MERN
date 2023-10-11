@@ -1,7 +1,17 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
+  "/admin/Admin_user": "pages/admin/Admin_user.html",
+  "/api/hello": "pages/api/hello.js",
+  "/articles/Footer": "pages/articles/Footer.html",
+  "/articles/Navbar": "pages/articles/Navbar.html",
   "/_error": "pages/_error.js",
+  "/articles/NoPost": "pages/articles/NoPost.html",
+  "/articles/Privacy": "pages/articles/Privacy.html",
+  "/articles/Terms": "pages/articles/Terms.html",
+  "/articles/Searchbar": "pages/articles/Searchbar.js",
+  "/articles/Post": "pages/articles/Post.js",
+  "/articles/category": "pages/articles/category.js",
   "/": "pages/index.js",
-  "/articles/Terms": "pages/articles/Terms.js"
+  "/404": "pages/404.html"
 }

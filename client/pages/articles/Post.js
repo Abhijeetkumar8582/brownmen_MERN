@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import NoPost from './NoPost';
 import Head from 'next/head';
-import { headers } from '@/next.config';
-import { yogaTags, nutritionTags, fitnessTags, healthTags, yogaBenefits } from './Tags'
 
 function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
- 
+  const yogaTags = ["Yoga", "YogaPoses", "Meditation", "YogaLife", "HealthyLiving", "Wellness", "Fitness", "Mindfulness", "YogaJourney", "YogaCommunity", "YogaPractice", "YogaInspiration", "YogaFlow", "YogaTeacher", "YogaEveryday", "StressRelief", "Flexibility", "Strength", "Balance", "InnerPeace"];
+  const nutritionTags = ["Nutrition", "HealthyEating", "Diet", "NutritionTips", "NutritionFacts", "BalancedDiet", "NutritionAdvice", "HealthyDiet", "NutritionPlan", "EatingWell", "NutritionEducation", "MealPlanning", "NutritionalWellness", "WholeFoods", "NutritionGoals", "Nutritionist", "CleanEating", "NutritionForLife", "HealthyChoices", "FoodAsMedicine"];
+  const fitnessTags = ["Fitness", "FitnessJourney", "Workout", "Exercise", "HealthyLifestyle", "StrengthTraining", "Cardio", "GymLife", "FitLife", "FitnessMotivation", "FitnessGoals", "ActiveLifestyle", "HealthAndFitness", "Weightlifting", "CrossFit", "Running", "Bodybuilding", "Wellness", "Nutrition", "FitnessCommunity"]
+  const healthTags = ["Health", "HealthyLiving", "Wellness", "Healthcare", "HealthTips", "HolisticHealth", "MentalHealth", "PhysicalHealth", "WellBeing", "SelfCare", "HealthyChoices", "MindBodyHealth", "HealthAndWellness", "HealthyHabits", "Nutrition", "HealthyMind", "HealthyBody", "WellnessJourney", "FitnessForHealth", "HealthyLifestyle"]
+  const yogaBenefits = ["Improved flexibility", "Increased strength", "Stress reduction", "Enhanced mental clarity", "Better posture and alignment", "Mind-body connection", "Relaxation", "Inner peace", "Weight management", "Improved balance", "Cardiovascular health", "Respiratory health", "Pain relief", "Flexibility", "Muscle tone", "Mood enhancement", "Better sleep", "Digestive health", "Energy boost", "Spiritual growth"];
+
   const [getData, setData] = useState([])
   const [sugesstionArr, setsugesstionArr] = useState([])
   const [blogPostRelevantTag, setblogPostRelevantTag] = useState([])
   const [blogTags, setBlogTags] = useState([])
   const shuffledArray = yogaBenefits.slice();
-
   let postTag = []
- 
-  console.log(postTag)
+
   useEffect(() => {
     setData(jsonRes)
     setsugesstionArr(jsonRes2)
@@ -46,9 +47,9 @@ function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
   return (
     <>
       <Head>
-        <title> {jsonRes[0].text}</title>  
+        <title> {jsonRes[0].text}</title>
         <meta property="og:title" content="Brownmen" />
-        <meta property="og:description" content={jsonRes[0].text.slice(0,40)} />
+        <meta property="og:description" content={jsonRes[0].text.slice(0, 40)} />
         <meta property="og:image" content={jsonRes[1].text} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="628" />
@@ -76,21 +77,21 @@ function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
           </div>
           <div className='shareIcon'>
             <h6 className='Mobile_text'>Share</h6>
-            <div style={{display:'flex',gap:'5px'}}>
-          <div>
-          <i className="fa fa-facebook" aria-hidden="true" style={{color:'black',fontSize:'17px'}}></i>
-          </div>
-          <div>
-          <i className="fa fa-twitter" aria-hidden="true" style={{color:'black',fontSize:'17px'}}></i>
-          </div>
-          <div>
-          <i className="fa fa-linkedin" aria-hidden="true" style={{color:'black',fontSize:'17px'}}></i>
-          </div>
-        </div>
+            <div style={{ display: 'flex', gap: '5px' }}>
+              <div>
+                <i className="fa fa-facebook" aria-hidden="true" style={{ color: 'black', fontSize: '17px' }}></i>
+              </div>
+              <div>
+                <i className="fa fa-twitter" aria-hidden="true" style={{ color: 'black', fontSize: '17px' }}></i>
+              </div>
+              <div>
+                <i className="fa fa-linkedin" aria-hidden="true" style={{ color: 'black', fontSize: '17px' }}></i>
+              </div>
+            </div>
           </div>
         </div>
         <div style={{ display: 'flex' }}>
-          <div style={{width:'100%'}}> 
+          <div style={{ width: '100%' }}>
             <div>
               <h1>{jsonRes[0].text} </h1>
             </div>
@@ -186,7 +187,6 @@ export async function getServerSideProps(context) {
     });
     const data2 = await res2.json();
     const jsonRes2 = data2
-    // console.log(jsonRes2,"jsonRes2");
     return { props: { jsonRes, blog_category, insertDate, jsonRes2 } }
   }
   catch (error) {

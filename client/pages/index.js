@@ -204,7 +204,7 @@ HomePage.requireNavbarAndFooter = true;
 export default HomePage;
 
 export async function getServerSideProps() {
-  console.log("server")
+ 
   try {
 
     const headers = new Headers();

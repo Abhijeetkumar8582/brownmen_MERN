@@ -3,7 +3,7 @@ import React from 'react'
 
 function Terms() {
     return (
-        <div>
+        <>
             <Head>
                 <title>Terms and Conditions</title>
                 <meta property="og:title" content="Brownmen" />
@@ -135,7 +135,7 @@ function Terms() {
 
                 <p>As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.</p>
             </div>
-        </div>
+        </>
     )
 }
 Terms.requireNavbarAndFooter = true;

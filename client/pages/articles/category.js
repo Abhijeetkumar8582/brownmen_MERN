@@ -62,7 +62,6 @@ function Category({ data }) {
     <>
       <Head>
         <title> {category}</title>
-
         <meta property="og:title" content="Brownmen" />
         <meta property="og:description" content={carousel_description.slice(0, 40)} />
         <meta property="og:image" content={carousel_Image} />

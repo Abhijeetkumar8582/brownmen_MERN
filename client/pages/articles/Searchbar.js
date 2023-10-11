@@ -18,7 +18,6 @@ function Searchbar({data}) {
   const [filteredData, setFilteredData] = useState([]);
   const searchFilter = (value) => {
     const searchText = value.toLowerCase();
-    console.log(searchText)
     const filteredItems = data.filter((item) =>
       item.blogtitle.toLowerCase().includes(searchText)
     );
@@ -137,7 +136,6 @@ Searchbar.requireNavbarAndFooter = true;
 export default Searchbar;
 
 export async function getServerSideProps() {
-  console.log("server")
   try {
 
     const headers = new Headers();

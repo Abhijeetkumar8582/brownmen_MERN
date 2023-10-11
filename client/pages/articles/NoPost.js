@@ -34,7 +34,6 @@ function NoPost() {
         <>
             <Head>
                 <title> No Post</title>
-
                 <meta property="og:title" content="Brownmen" />
                 <meta property="og:description" content={category[0].heading} />
                 <meta property="og:image" content={category[0].key} />
