@@ -4,10 +4,10 @@ import Navbar from './articles/Navbar'
 
 export default function App({ Component, pageProps }) {
   const shouldRenderNavbarAndFooter = Component.requireNavbarAndFooter;
-  
+
   return <>
- {shouldRenderNavbarAndFooter && <Navbar />}
-<Component {...pageProps} />
-{shouldRenderNavbarAndFooter && <Footer/>}
+    {shouldRenderNavbarAndFooter && <Navbar />}
+    <Component {...pageProps} />
+    {shouldRenderNavbarAndFooter && <Footer />}
   </>
 }

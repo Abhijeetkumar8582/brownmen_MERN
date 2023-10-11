@@ -8,9 +8,7 @@ import Head from 'next/head'
 
 function HomePage({ data }) {
 
-
   const router = useRouter()
-  console.log({ data }, "home")
   const handleCLick = (blog_slug) => {
     router.push({
       pathname: 'articles/Post',
@@ -47,6 +45,13 @@ function HomePage({ data }) {
     <>
       <Head>
         <title> Brownmen</title>
+        <meta property="og:title" content="Brownmen" />
+        <meta property="og:description" content="Explore our latest blogs on a wide range of topics, including technology, travel, food, and more. Stay up-to-date with our informative and engaging articles that cover the latest trends and insights in these areas." />
+        <meta property="og:image" content={category[0].key}/>
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="628" />
+        <meta property="og:url" content="https://brownmen.netlify.app" />
+        <meta property="og:type" content="website" />
       </Head>
 
       <div className=' carousel_index' >
@@ -58,21 +63,21 @@ function HomePage({ data }) {
           </div>
           <div className="carousel-inner">
             <div id="carouselOne" className="carousel-item  active" data-bs-interval="10000">
-              <img src="https://images.pexels.com/photos/1547248/pexels-photo-1547248.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} style={{objectFit:'cover',width:'100%'}} height={500} alt="https://imexed" />
+              <img src="https://images.pexels.com/photos/1547248/pexels-photo-1547248.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} style={{ objectFit: 'cover', width: '100%' }} height={500} alt="https://imexed" />
               <div className="carousel-caption ">
                 <h1 style={{ color: "white", textAlign: "Center" }}>Get Fit and Strong: Tips and Workouts for a Healthy Lifestyle</h1>
                 <p style={{ color: "white", textAlign: "Center" }}> We share workout plans, nutrition advice, and tips on how to stay motivated</p>
               </div>
             </div>
             <div id="carouselTwo" className="carousel-item" data-bs-interval="2000">
-              <img src="https://images.pexels.com/photos/3049225/pexels-photo-3049225.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} style={{objectFit:'cover'}} height={500} alt="https://imag750&dpr=2" />
+              <img src="https://images.pexels.com/photos/3049225/pexels-photo-3049225.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} style={{ objectFit: 'cover' }} height={500} alt="https://imag750&dpr=2" />
               <div className="carousel-caption ">
                 <h1 style={{ color: "white", textAlign: "Center" }}>Yoga Mind and Body: A Holistic Guide to Wellness</h1>
                 <p style={{ color: "white", textAlign: "Center" }}>Offers a holistic approach to yoga, including tips for developing a strong mind-body connection, meditation techniques, and nutrition advice.</p>
               </div>
             </div>
             <div id="carouselThree" className="carousel-item" >
-              <img src="https://images.pexels.com/photos/3622474/pexels-photo-3622474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} style={{objectFit:'cover'}} height={500} alt="https://images.pe750&dpr=2" />
+              <img src="https://images.pexels.com/photos/3622474/pexels-photo-3622474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" width={500} style={{ objectFit: 'cover' }} height={500} alt="https://images.pe750&dpr=2" />
               <div className="carousel-caption">
                 <h1 style={{ color: "white", textAlign: "Center" }}>Healthy Habits, Healthy You: A Nutrition Guide for Optimal Health</h1>
                 <p style={{ color: "white", textAlign: "Center" }}>Includes articles on the importance of vitamins and minerals, tips for meal planning, and recipe ideas.</p>
@@ -91,12 +96,12 @@ function HomePage({ data }) {
       </div>
 
 
-{/* Category display */}
-<div className='Spotlight'>
+      {/* Category display */}
+      <div className='Spotlight'>
         <div className='flex-wrap '>
           <div className='categoryDiv_main_div' >
             {category.map((element, index) => (
-              <div className='' key={index} style={{width:'100%'}}>
+              <div className='' key={index} style={{ width: '100%' }}>
                 <Link href='#' onClick={() => onNavbarClick(element.heading)} style={{ textDecoration: "none" }}>
                   <div className="categoryDiv">
                     <div className="toastContent">
@@ -116,43 +121,43 @@ function HomePage({ data }) {
       {/* Fit display */}
       <div className="Trending_div" >
         <h3 className='Featured_text_'>Trending</h3>
-            <div className="Trending_Main_div">
-              {data.filter((element) => element.category === "Yoga").slice(0, 9).map((element, index) => (
-                <div className="" key={index}>
-                  <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
-                    <div className="card">
-                      <div className="image">
-                      <Image loading='lazy' src={element.image} width={300} height={150} style={{borderRadius:'5px 5px 0rem 0rem', objectFit: 'cover'}} alt={element.image} />
-                      </div>
-                      <div className="content">
-                       {/* <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}> */}
-                          <span className="title">
-                          {element.blogtitle}
-                          </span>
-                       {/* </Link> */} 
+        <div className="Trending_Main_div">
+          {data.filter((element) => element.category === "Yoga").slice(0, 9).map((element, index) => (
+            <div className="" key={index}>
+              <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}>
+                <div className="card">
+                  <div className="image">
+                    <Image loading='lazy' src={element.image} width={300} height={150} style={{ borderRadius: '5px 5px 0rem 0rem', objectFit: 'cover' }} alt={element.image} />
+                  </div>
+                  <div className="content">
+                    {/* <Link href='#' onClick={() => handleCLick(element.slug)} style={{ textDecoration: "none" }}> */}
+                    <span className="title">
+                      {element.blogtitle}
+                    </span>
+                    {/* </Link> */}
 
-                        <p className="desc">
-                        {element.blog_desc[2].text.slice(0, 170).replace("<br/>", " ")}....
-                         </p>
+                    <p className="desc">
+                      {element.blog_desc[2].text.slice(0, 170).replace("<br/>", " ")}....
+                    </p>
 
-                        <button className="action" >
-                          Know more
-                          <span aria-hidden="true">
-                            →
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-                  </Link>
+                    <button className="action" >
+                      Know more
+                      <span aria-hidden="true">
+                        →
+                      </span>
+                    </button>
+                  </div>
                 </div>
-              ))}
+              </Link>
             </div>
-          </div>
+          ))}
+        </div>
+      </div>
 
 
       {/* Fitnes display */}
 
-      <div className='Blog_Container_Head_div' style={{padding:'2rem'}}>
+      <div className='Blog_Container_Head_div' style={{ padding: '2rem' }}>
         <h3 className='Featured_text_'>Top Stories</h3>
         <div className='Blog_Container_Main_div '>
           {data.slice(0, 12).map((element, index) => (
@@ -204,7 +209,7 @@ export async function getServerSideProps() {
 
     const headers = new Headers();
     headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
-    const res = await fetch(`http://localhost:4001/category/all_blog`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/category/all_blog`, {
       headers: headers,
       mode: "no-cors",
       timeout: 0,

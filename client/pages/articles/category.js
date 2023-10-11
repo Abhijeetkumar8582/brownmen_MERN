@@ -26,25 +26,25 @@ function Category({ data }) {
     if (category == "Nutrition") {
       setCarousel_tittle("Pushing Your Limits")
       setCarousel_description("Regular exercise improves physical fitness, boosts mood, and reduces the risk of chronic diseases")
-      setColor("linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)")
+      setColor("tomato")
       setCarousel_Image("https://images.pexels.com/photos/3026802/pexels-photo-3026802.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
     }
     else if (category == "Fitness") {
       setCarousel_tittle("Eating Well for Life")
       setCarousel_description("Maintaining a healthy lifestyle is crucial for overall well-being and longevity")
-      setColor("linear-gradient(to bottom, #1b0537, #4d2f5b, #7f5d83, #b28fad, #e5c5db)")
+      setColor("steelblue")
       setCarousel_Image("https://images.pexels.com/photos/1756959/pexels-photo-1756959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
     }
     else if (category == "Health") {
       setCarousel_tittle("The Power of Self-Care")
       setCarousel_description("Living well involves making healthy choices for a fulfilling and balanced life")
-      setColor("linear-gradient(to right, #7fe898, #ced679, #fac387, #ffb8ab, #f3b9cc)")
+      setColor("seagreen")
       setCarousel_Image("https://images.pexels.com/photos/131044/pexels-photo-131044.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
     }
     else {
       setCarousel_tittle("Yoga for Stress Relief")
       setCarousel_description("Regular practice of yoga can help improve flexibility, balance, and strength")
-      setColor("linear-gradient(to right, #e87f82, #e8678f, #db54a6, #bc4ec4, #7e55e3)")
+      setColor("cadetblue")
       setCarousel_Image("https://images.pexels.com/photos/8964915/pexels-photo-8964915.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
     }
 
@@ -62,13 +62,22 @@ function Category({ data }) {
     <>
       <Head>
         <title> {category}</title>
+
+        <meta property="og:title" content="Brownmen" />
+        <meta property="og:description" content={carousel_description.slice(0, 40)} />
+        <meta property="og:image" content={carousel_Image} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="628" />
+        <meta property="og:url" content="https://brownmen.netlify.app" />
+        <meta property="og:type" content="website" />
       </Head>
+
       <div className='my-5'></div>
       <div className='categoryMainDiv'>
         <div className='categoryMainDiv_containerOne' >
-          <Image src={carousel_Image} style={{ width: "100%", height: "100%" ,objectFit:'cover'}} width={500} height={500} alt={carousel_Image} />
+          <Image src={carousel_Image} style={{ width: "100%", height: "100%", objectFit: 'cover' }} width={500} height={500} alt={carousel_Image} />
         </div>
-        <div className='categoryMainDiv_containerTwo' style={{ backgroundImage: getColor }}>
+        <div className='categoryMainDiv_containerTwo' style={{ background: getColor }}>
           <h1 >{carousel_tittle}</h1>
           <h5 >{carousel_description}</h5>
         </div>
@@ -77,7 +86,7 @@ function Category({ data }) {
 
       <div className='Featured_text_div'>
         <h1 className='Featured_text_'>Featured</h1>
-        </div>
+      </div>
       <div className='Blogcard_Main_div'>
         {data.slice(0, 12).map((element, index) => (
           <div className='' style={{ gap: '5px' }} key={index}>
@@ -120,7 +129,7 @@ export async function getServerSideProps(context) {
 
     const headers = new Headers();
     headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
-    const res = await fetch(`http://localhost:4001/category/${category}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/category/${category}`, {
       headers: headers,
       timeout: 0,
 

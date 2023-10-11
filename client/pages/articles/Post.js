@@ -46,7 +46,14 @@ function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
   return (
     <>
       <Head>
-        <title> {jsonRes[0].text}</title>
+        <title> {jsonRes[0].text}</title>  
+        <meta property="og:title" content="Brownmen" />
+        <meta property="og:description" content={jsonRes[0].text.slice(0,40)} />
+        <meta property="og:image" content={jsonRes[1].text} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="628" />
+        <meta property="og:url" content="https://brownmen.netlify.app" />
+        <meta property="og:type" content="website" />
       </Head>
 
       <div className='space' style={{ padding: "1px" }}></div>
@@ -71,13 +78,13 @@ function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
             <h6 className='Mobile_text'>Share</h6>
             <div style={{display:'flex',gap:'5px'}}>
           <div>
-          <i class="fa fa-facebook" aria-hidden="true" style={{color:'black',fontSize:'17px'}}></i>
+          <i className="fa fa-facebook" aria-hidden="true" style={{color:'black',fontSize:'17px'}}></i>
           </div>
           <div>
-          <i class="fa fa-twitter" aria-hidden="true" style={{color:'black',fontSize:'17px'}}></i>
+          <i className="fa fa-twitter" aria-hidden="true" style={{color:'black',fontSize:'17px'}}></i>
           </div>
           <div>
-          <i class="fa fa-linkedin" aria-hidden="true" style={{color:'black',fontSize:'17px'}}></i>
+          <i className="fa fa-linkedin" aria-hidden="true" style={{color:'black',fontSize:'17px'}}></i>
           </div>
         </div>
           </div>
@@ -163,7 +170,7 @@ export async function getServerSideProps(context) {
 
     const headers = new Headers();
     headers.append("X-Api-Key", "6706d6eb-e6ae-48ae-ad82-9e4c0ac50e96");
-    const res = await fetch(`http://localhost:4001/category/blog/${blog_slug}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/category/blog/${blog_slug}`, {
       headers: headers,
       timeout: 0,
 
@@ -173,7 +180,7 @@ export async function getServerSideProps(context) {
     const blog_category = data[0].category
     const insertDate = data[0].date
 
-    const res2 = await fetch(`http://localhost:4001/category/all_blog`, {
+    const res2 = await fetch(`${process.env.NEXT_PUBLIC_API}/category/all_blog`, {
       headers: headers,
       timeout: 0,
     });
