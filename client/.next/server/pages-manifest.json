@@ -3,7 +3,7 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/articles/Post": "pages/articles/Post.js",
-  "/articles/Searchbar": "pages/articles/Searchbar.js",
-  "/articles/category": "pages/articles/category.js",
-  "/": "pages/index.js"
+  "/articles/Privacy": "pages/articles/Privacy.js",
+  "/": "pages/index.js",
+  "/articles/Terms": "pages/articles/Terms.js"
 }
