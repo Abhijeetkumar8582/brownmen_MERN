@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router';
 import Head from 'next/head'
 import Image from 'next/image';
-
+import fallBackData from '../pages/userdatabase.abhis.json'
 
 
 
@@ -222,6 +222,6 @@ export async function getServerSideProps() {
   }
   catch (error) {
     // console.error(error);
-    return { props: {} }
+    return { props: { data: fallBackData } };
   }
 }

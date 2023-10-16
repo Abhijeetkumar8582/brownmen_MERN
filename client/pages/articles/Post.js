@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import fallBackData from '../userdatabase.abhis.json'
 
 function Post({ jsonRes, blog_category, insertDate, jsonRes2 }) {
   const yogaTags = ["Yoga", "YogaPoses", "Meditation", "YogaLife", "HealthyLiving", "Wellness", "Fitness", "Mindfulness", "YogaJourney", "YogaCommunity", "YogaPractice", "YogaInspiration", "YogaFlow", "YogaTeacher", "YogaEveryday", "StressRelief", "Flexibility", "Strength", "Balance", "InnerPeace"];
@@ -201,7 +202,14 @@ export async function getServerSideProps(context) {
     return { props: { jsonRes, blog_category, insertDate, jsonRes2 } }
   }
   catch (error) {
-    console.error(error);
-    return { props: {} }
+    // console.error(error);
+    const { blog_slug } = context.query;
+    const data = fallBackData.filter((element)=>blog_slug==element.slug)
+    const jsonRes = data[0].blog_desc
+    const blog_category = data[0].category
+    const insertDate = data[0].date
+    const data2 = fallBackData
+    const jsonRes2 = data2
+    return { props: { jsonRes, blog_category, insertDate, jsonRes2 } }
   }
 }

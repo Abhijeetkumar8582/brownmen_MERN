@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from 'react';
-
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 import Head from 'next/head';
-
-
-function Searchbar({data}) {
+import fallBackData from '../userdatabase.abhis.json'
+function Searchbar({ data }) {
   const router = useRouter();
-  // const [getText, setText] = useState("")
-
- 
-
- 
   const [getText, setText] = useState('');
   const [filteredData, setFilteredData] = useState([]);
   const searchFilter = (value) => {
@@ -25,7 +17,7 @@ function Searchbar({data}) {
   };
 
   useEffect(() => {
-  
+
     searchFilter(getText);
   }, [getText, data]);
 
@@ -34,10 +26,10 @@ function Searchbar({data}) {
     setText(newValue);
   };
 
-const text_change = (event) => {
-  let get_typing_value = event.target.value
-  setText(get_typing_value)
-}
+  const text_change = (event) => {
+    let get_typing_value = event.target.value
+    setText(get_typing_value)
+  }
 
   const SearchBox = (setText) => {
     router.push({
@@ -45,10 +37,10 @@ const text_change = (event) => {
       query: { blog_slug: setText }
     })
   }
-  
+
   return (
     <>
-       <Head>
+      <Head>
         <title>Search Blog</title>
         <meta property="og:title" content="Brownmen" />
         <meta property="og:description" content="Find your blog" />
@@ -58,7 +50,7 @@ const text_change = (event) => {
         <meta property="og:url" content="https://brownmen.netlify.app" />
         <meta property="og:type" content="website" />
       </Head>
-      
+
       <h2 className='search_Heading'>Find your blog</h2>
       <div className='search_box'>
         <div className="container container_Div">
@@ -70,62 +62,62 @@ const text_change = (event) => {
 
 
       <div className='my-2'>
-        <h1 className='Featured_text_' style={{marginLeft:'1rem'}}>Latest Articles</h1>
+        <h1 className='Featured_text_' style={{ marginLeft: '1rem' }}>Latest Articles</h1>
         <div className='Blogcard_Main_div'>
-        {filteredData.slice(0, 12).map((element, index) => (
-          <div className='' style={{ gap: '5px' }} key={index}>
-            <Link href='#' onClick={() => SearchBox(element.slug)} style={{ textDecoration: "none" }}>
-              <div className="Blogcard">
-                <div className="Blogcard-image">
-                  <Image loading='lazy' src={element.image} width={330} height={170} style={{ borderRadius: '5px' }} className="card-img-top" alt={element.blogtitle} />
+          {filteredData.slice(0, 12).map((element, index) => (
+            <div className='' style={{ gap: '5px' }} key={index}>
+              <Link href='#' onClick={() => SearchBox(element.slug)} style={{ textDecoration: "none" }}>
+                <div className="Blogcard">
+                  <div className="Blogcard-image">
+                    <Image loading='lazy' src={element.image} width={330} height={170} style={{ borderRadius: '5px' }} className="card-img-top" alt={element.blogtitle} />
+                  </div>
+                  <div style={{ maxHeight: '250px' }}>
+                    <div style={{ height: '15%' }}>
+                      <p className="Blogcard-title">{element.blogtitle}</p>
+                    </div>
+                    <div style={{ height: '70%' }}>
+                      <p className="Blogcard-body">
+                        {element.blog_desc[2].text.slice(0, 150).replace("<br/>", " ")}...
+                      </p>
+                    </div>
+                    <div style={{ height: '15%' }}>
+                      <p className="Blogcard_footer"><span className="by-name">{element.author}</span></p>
+                    </div>
+                  </div>
                 </div>
-                <div style={{ maxHeight: '250px' }}>
-                  <div style={{ height: '15%' }}>
-                    <p className="Blogcard-title">{element.blogtitle}</p>
+              </Link>
+            </div>
+          ))}
+          {filteredData.length < 1 ? (
+            <div><h5 className='text-center'>Right now, we don't have a blog dedicated to {getText}. However, feel free to check out our other blogs for some interesting reads! </h5>
+              <div className='Blogcard_Main_div'>
+                {data.slice(0, 12).map((element, index) => (
+                  <div className='' style={{ gap: '5px' }} key={index}>
+                    <Link href='#' onClick={() => SearchBox(element.slug)} style={{ textDecoration: "none" }}>
+                      <div className="Blogcard">
+                        <div className="Blogcard-image">
+                          <Image loading='lazy' src={element.image} width={330} height={170} style={{ borderRadius: '5px' }} className="card-img-top" alt={element.blogtitle} />
+                        </div>
+                        <div style={{ maxHeight: '250px' }}>
+                          <div style={{ height: '15%' }}>
+                            <p className="Blogcard-title">{element.blogtitle}</p>
+                          </div>
+                          <div style={{ height: '70%' }}>
+                            <p className="Blogcard-body">
+                              {element.blog_desc[2].text.slice(0, 150).replace("<br/>", " ")}...
+                            </p>
+                          </div>
+                          <div style={{ height: '15%' }}>
+                            <p className="Blogcard_footer"><span className="by-name">{element.author}</span></p>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
                   </div>
-                  <div style={{ height: '70%' }}>
-                    <p className="Blogcard-body">
-                      {element.blog_desc[2].text.slice(0, 150).replace("<br/>", " ")}...
-                    </p>
-                  </div>
-                  <div style={{ height: '15%' }}>
-                    <p className="Blogcard_footer"><span className="by-name">{element.author}</span></p>
-                  </div>
-                </div>
+                ))}
               </div>
-            </Link>
-          </div>
-        ))}
-        {filteredData.length<1?(
-        <div><h5 className='text-center'>Right now, we don't have a blog dedicated to {getText}. However, feel free to check out our other blogs for some interesting reads! </h5>
-        <div className='Blogcard_Main_div'>
-        {data.slice(0, 12).map((element, index) => (
-          <div className='' style={{ gap: '5px' }} key={index}>
-            <Link href='#' onClick={() => SearchBox(element.slug)} style={{ textDecoration: "none" }}>
-              <div className="Blogcard">
-                <div className="Blogcard-image">
-                  <Image loading='lazy' src={element.image} width={330} height={170} style={{ borderRadius: '5px' }} className="card-img-top" alt={element.blogtitle} />
-                </div>
-                <div style={{ maxHeight: '250px' }}>
-                  <div style={{ height: '15%' }}>
-                    <p className="Blogcard-title">{element.blogtitle}</p>
-                  </div>
-                  <div style={{ height: '70%' }}>
-                    <p className="Blogcard-body">
-                      {element.blog_desc[2].text.slice(0, 150).replace("<br/>", " ")}...
-                    </p>
-                  </div>
-                  <div style={{ height: '15%' }}>
-                    <p className="Blogcard_footer"><span className="by-name">{element.author}</span></p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-        ))}
+            </div>) : null}
         </div>
-        </div>):null}
-      </div>
       </div>
 
 
@@ -153,6 +145,6 @@ export async function getServerSideProps() {
   }
   catch (error) {
     // console.error(error);
-    return { props: {} }
+    return { props: { data: fallBackData } };
   }
 }

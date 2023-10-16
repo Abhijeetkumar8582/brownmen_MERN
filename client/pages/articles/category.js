@@ -3,8 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-
-
+import fallBackData from '../userdatabase.abhis.json'
 
 
 
@@ -139,6 +138,6 @@ export async function getServerSideProps(context) {
   }
   catch (error) {
 
-    return { props: {} }
+    return { props: { data: fallBackData } };
   }
 }
